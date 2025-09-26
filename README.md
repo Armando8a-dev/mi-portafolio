@@ -1,46 +1,62 @@
-# Astro Starter Kit: Basics
+# Portafolio de Armando Ochoa
 
-```sh
-npm create astro@latest -- --template basics
-```
+¡Hola! 👋 Este es el repositorio de mi portafolio personal, diseñado y construido para mostrar mis habilidades, proyectos y experiencia como desarrollador web y analista de datos.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Demo en Vivo
 
-## 🚀 Project Structure
+Puedes ver el sitio en funcionamiento aquí: **[Ver el sitio en vivo](https://tu-sitio-web.com)**
 
-Inside of your Astro project, you'll see the following folders and files:
+*(No olvides reemplazar `https://tu-sitio-web.com` con la URL real una vez que lo despliegues)*
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+![Captura de pantalla del Portafolio](./public/images/screenshot.png)
+*(Consejo: Crea una carpeta `images` en `public`, toma una captura de pantalla de tu sitio y guárdala como `screenshot.png` para que se muestre aquí)*
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
+## 🛠️ Tecnologías Utilizadas
 
-All commands are run from the root of the project, from a terminal:
+Este proyecto fue construido utilizando un stack moderno y enfocado en el rendimiento:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+*   **Framework:** [Astro](https://astro.build/) - Para un rendimiento increíblemente rápido y una excelente experiencia de desarrollo.
+*   **Lenguaje:** [TypeScript](https://www.typescriptlang.org/) - Para un código más robusto y escalable.
+*   **Estilos:** CSS3 puro con variables, Flexbox y Grid para un diseño responsivo y mantenible.
+*   **Formulario de Contacto:** Integración con [Formspree](https://formspree.io/) para manejar los envíos de formularios sin necesidad de un backend.
+*   **Iconos:** [Astro Icon](https://github.com/natemoo-re/astro-icon) para una gestión sencilla de iconos SVG.
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## ✨ Características
+
+*   **Diseño de Una Sola Página (SPA-like):** Navegación fluida entre secciones.
+*   **Totalmente Responsivo:** Adaptado para una visualización perfecta en dispositivos móviles, tabletas y escritorio.
+*   **Componentes Modulares:** Cada sección (`Hero`, `About`, `Projects`, `Contact`) es un componente reutilizable de Astro.
+*   **Modo Claro:** Una interfaz limpia y profesional con una paleta de colores claros.
+*   **Formulario de Contacto Funcional:** Permite a los visitantes enviarme mensajes directamente a mi correo electrónico.
+
+---
+
+## 🏃‍♂️ Cómo Ejecutar el Proyecto Localmente
+
+Si deseas clonar y ejecutar este proyecto en tu máquina local, sigue estos sencillos pasos:
+
+1.  **Clona el repositorio:**
+    ```sh
+    git clone https://github.com/tu-usuario/tu-repositorio.git
+    ```
+
+2.  **Navega a la carpeta del proyecto:**
+    ```sh
+    cd tu-repositorio
+    ```
+
+3.  **Instala las dependencias:**
+    ```sh
+    npm install
+    ```
+
+4.  **Inicia el servidor de desarrollo:**
+    ```sh
+    npm run dev
+    ```
+
+¡Y listo! Abre [http://localhost:4321](http://localhost:4321) (o el puerto que hayas configurado) en tu navegador para ver el proyecto.
