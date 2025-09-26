@@ -23,22 +23,7 @@ const { title } = Astro.props;
     </head>
     <body>
 	<Navbar />
-        <!-- Barra lateral izquierda con redes sociales -->
-        <aside class="left-sidebar">
-            <a href="https://github.com/Armando8a-dev" target="_blank" rel="noopener noreferrer"><Icon name="simple-icons:github" /></a>
-            <a href="https://www.linkedin.com/in/armando-ochoa-dev" target="_blank" rel="noopener noreferrer"><Icon name="simple-icons:linkedin" /></a>
-            <!-- Agrega más redes si quieres -->
-            <div class="line"></div>
-        </aside>
-
-        <!-- Barra lateral derecha con email 
-        <aside class="right-sidebar">
-            <a href="mailto:tu-email@correo.com" class="email-link">tu-email@correo.com</a>
-            <div class="line"></div>
-        </aside>
-		-->
-
-        <!-- El <slot /> es donde se insertará el contenido de cada página -->
+        
         <slot />
 
     </body>

@@ -3,82 +3,99 @@
 ---
 
 <header>
-    <nav>
-        <a href="/" class="logo">
-            <img
-                src="/images/profile.JPG"
-                alt="Foto de Armando Ochoa"
-                class="profile-pic"
-            />
-            <span>Armando Ochoa</span>
-        </a>
-        <ol class="nav-links">
-            <li><a href="#about">Sobre Mí</a></li>
-            <li><a href="#experience">Experiencia</a></li>
-            <li><a href="#projects">Proyectos</a></li>
-            <li><a href="#contact">Contacto</a></li>
-        </ol>
-    </nav>
+    <div class="header-content">
+        <div class="header_logo-container">
+            <div class="header_logo-img-cont">
+                <img
+                    src="/images/profile.jpg"
+                    alt="Foto de Armando Ochoa"
+                    class="profile-pic"
+                />
+            </div>
+            <span class="header_logo-sub">Armando Ochoa</span>
+        </div>
+        <div>
+            <ul class="nav-links">
+                <li><a class="header_link" href="#">Inicio</a></li>
+                <li>
+                    <a class="header_link" href="#about">Sobre mi</a>
+                </li>
+                <li><a class="header_link" href="#projects">Proyectos</a></li>
+                <li><a class="header_link" href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
 </header>
 
 <style>
+    .header_logo-sub {
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
     header {
         position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
-        padding: 0 50px;
-        background-color: #ffffff;
-        backdrop-filter: blur(10px);
-        z-index: 100;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        transition: top 0.3s ease-in-out;
+        z-index: 1000;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 100px;
+        background: rgb(255, 255, 255);
     }
 
-    nav {
+    .header-content {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        width: 100%;
+        padding: 1rem 5rem;
+
     }
 
-    .logo {
+    .header_logo-container {
         display: flex;
         align-items: center;
         gap: 0.75rem;
         text-decoration: none;
-        color: var(--color-texto-principal);
+        color: rgb(51, 51, 51);
         font-weight: 600;
     }
 
-    .profile-pic {
-        width: 45px;
-        height: 45px;
+    .header_logo-img-cont {
+        width: 5rem;
+        height: 5rem;
         border-radius: 50%;
-        border: 2px solid var(--color-primario);
+        overflow: hidden;
+        background: rgb(7, 9, 129);
+    }
+
+    .profile-pic {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
+        object-position: center center;
+        display: block;
     }
 
     .nav-links {
         display: flex;
-        align-items: center;
-        gap: 2rem;
         list-style: none;
         padding: 0;
         margin: 0;
-        font-family: monospace;
     }
 
-    .nav-links a {
-        color: var(--color-texto-principal);
+    .header_link {
+        display: inline-block;
+        font-size: 16px;
+        color: rgb(51, 51, 51);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        padding: 2.2rem 3rem;
+        transition: color 0.3s;
         text-decoration: none;
-        transition: color 0.3s ease;
     }
 
-    .nav-links a:hover {
-        color: var(--color-primario);
+    .header_link:hover {
+        color: var(--color-primario, rgb(7, 9, 129));
     }
 
     /* Ocultar la navegación en pantallas pequeñas */
@@ -86,8 +103,8 @@
         .nav-links {
             display: none;
         }
-        header {
-            padding: 0 25px;
+        .header-content {
+            padding: 0 25px; /* Ajusta el padding solo aquí para móviles */
         }
     }
 </style>

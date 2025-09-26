@@ -9,13 +9,13 @@ import { Icon } from "astro-icon/components";
       <div class="main-footer__row-1 social-links">
         <h2 class="heading-sm"><span>Social</span></h2>
         <a
-          href="https://github.com/tu-usuario"
+          href="https://github.com/Armando8a-dev"
           target="_blank"
           class="main-footer__icon"
           rel="noopener noreferrer"><Icon name="simple-icons:github" /></a
         >
         <a
-          href="https://linkedin.com/in/tu-usuario"
+          href="https://www.linkedin.com/in/armando-ochoa-dev"
           target="_blank"
           class="main-footer__icon"
           rel="noopener noreferrer"><Icon name="simple-icons:linkedin" /></a
@@ -24,12 +24,13 @@ import { Icon } from "astro-icon/components";
       <div class="main-footer__row-2">
         <h2 class="heading-sm">Armando Ochoa</h2>
         <p class="main-footer__short-desc">
-          Soy un desarrollador Full Stack actualmente enfocado en el Frontend, construyendo interfaces de sitios y aplicaciones web que contribuyen al éxito del producto.
+          Soy un desarrollador Full Stack actualmente enfocado en el Frontend y
+          aspirante a Analista de Datos, construyendo interfaces de sitios y
+          aplicaciones web que contribuyen al éxito del producto.
         </p>
       </div>
     </div>
 
-    <!-- Nueva sección de Copyright -->
     <div class="main-footer__lower">
       <div>
         © Copyright {new Date().getFullYear()} Made by <a href=""
@@ -57,7 +58,7 @@ import { Icon } from "astro-icon/components";
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 10rem; /* Reducido para un mejor punto de quiebre */
+    gap: 10rem;
     padding: 8rem 0;
   }
 
@@ -75,14 +76,14 @@ import { Icon } from "astro-icon/components";
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 1.5rem; /* Añadido para espaciar del contenido */
+    margin-bottom: 1.5rem;
   }
 
   .main-footer__icon {
     margin-right: 1.5rem;
     width: 0.5rem;
     color: inherit;
-    display: inline-block; /* Asegura que el tamaño se aplique bien */
+    display: inline-block;
   }
 
   /* --- Estilos para la parte inferior del Footer --- */
@@ -104,27 +105,28 @@ import { Icon } from "astro-icon/components";
     color: rgb(238, 238, 238);
     font-size: 1.5rem;
     line-height: 1.7;
-}
+  }
 
   /* --- REGLAS PARA RESPONSIVO (MÓVIL) --- */
-  @media (max-width: 900px) { /* Un punto de quiebre más adecuado */
+  @media (max-width: 900px) {
+    
     .main-footer__upper {
-      flex-direction: column; /* Apila los elementos verticalmente */
-      align-items: center;   /* Centra los bloques apilados */
-      gap: 4rem;             /* Reduce el espacio vertical entre bloques */
-      text-align: center;    /* Centra el texto dentro de cada bloque */
-      padding: 4rem 0;       /* Reduce el padding vertical */
+      flex-direction: column;
+      align-items: center;
+      gap: 4rem; 
+      text-align: center;
+      padding: 4rem 0;
     }
 
     .main-footer__row-1,
     .main-footer__row-2 {
-      order: 0;              /* Resetea el orden para un flujo natural */
-      width: 100%;           /* Cada bloque ocupa todo el ancho */
+      order: 0;
+      width: 100%;
       max-width: 50rem;
     }
 
     .main-footer__row-1 .heading-sm {
-      margin-top: 2rem; /* Espacio extra arriba de "Social" */
+      margin-top: 2rem;
     }
   }
 </style>

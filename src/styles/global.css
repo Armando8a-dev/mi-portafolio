@@ -7,19 +7,17 @@ html {
 }
 
 :root {
-  /* Nueva paleta de colores - TEMA CLARO */
-  --color-fondo: #f8f7f4; /* Un beige muy claro / casi blanco */
-  --color-fondo-secundario: #ffffff; /* Blanco puro para tarjetas y secciones */
-  --color-texto-principal: #2d3748; /* Un gris oscuro para el texto principal */
-  --color-texto-secundario: #718096; /* Un gris más claro para texto secundario */
-  --color-primario: #4299e1; /* Un azul profesional como color de acento */
+  --color-fondo: #f8f7f4;
+  --color-fondo-secundario: #ffffff;
+  --color-texto-principal: #2d3748;
+  --color-texto-secundario: #718096;
+  --color-primario: rgb(7, 9, 129);
 }
 
 html {
-  font-family: system-ui, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: var(--color-fondo);
   color: var(--color-texto-principal);
-  /* Agregamos scroll-behavior para un desplazamiento suave */
   scroll-behavior: smooth;
 }
 
@@ -31,4 +29,17 @@ main {
   margin: auto;
   padding: 1.5rem;
   max-width: 80ch;
+}
+
+.btn {
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  font-weight: 700;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  background: rgb(7, 9, 129);
+  border-radius: 5px;
+  transition: transform 0.3s;
+  text-decoration: none;
 }
