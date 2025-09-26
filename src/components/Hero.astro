@@ -1,0 +1,62 @@
+---
+// src/components/Hero.astro
+---
+<section class="hero">
+  <div class=""></div>
+  <div class=""></div>
+  <div class=""></div>
+    <h1 class="intro">Hola, mi nombre es</h1>
+    <h2 class="name">Armando Ochoa.</h2>
+    <h3 class="subtitle">Construyo cosas para la web.</h3>
+    <p class="description">
+      Soy un apasionado Desarrollador Full Stack y Analista de Datos con experiencia en la creación de soluciones web robustas y el análisis de información para la toma de decisiones.
+    </p>
+    <a href="mailto:armaochoa99@gmail.com" class="cta-button">¡Contáctame!</a>
+  </section>
+  
+  <style>
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+    }
+    .intro {
+      color: var(--color-primario);
+      font-family: monospace;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      margin-bottom: 1rem;
+    }
+    .name {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      color: var(--color-texto-principal);
+      margin: 0;
+    }
+    .subtitle {
+      font-size: clamp(2rem, 7vw, 4rem);
+      color: var(--color-texto-secundario);
+      margin-top: 0.5rem;
+    }
+    .description {
+      margin-top: 1.5rem;
+      max-width: 540px;
+      color: var(--color-texto-secundario);
+    }
+    .cta-button {
+      color: var(--color-primario);
+      background-color: transparent;
+      border: 1px solid var(--color-primario);
+      border-radius: 4px;
+      padding: 1rem 1.75rem;
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 3rem;
+      align-self: flex-start;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: rgba(100, 255, 218, 0.1);
+    }
+  </style>

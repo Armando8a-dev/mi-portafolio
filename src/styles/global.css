@@ -1,0 +1,34 @@
+/* Añade estas reglas al inicio del archivo */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+:root {
+  /* Nueva paleta de colores - TEMA CLARO */
+  --color-fondo: #f8f7f4; /* Un beige muy claro / casi blanco */
+  --color-fondo-secundario: #ffffff; /* Blanco puro para tarjetas y secciones */
+  --color-texto-principal: #2d3748; /* Un gris oscuro para el texto principal */
+  --color-texto-secundario: #718096; /* Un gris más claro para texto secundario */
+  --color-primario: #4299e1; /* Un azul profesional como color de acento */
+}
+
+html {
+  font-family: system-ui, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto-principal);
+  /* Agregamos scroll-behavior para un desplazamiento suave */
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  margin: auto;
+  padding: 1.5rem;
+  max-width: 80ch;
+}
