@@ -1,11 +1,12 @@
 ---
 // src/components/Navbar.astro
+import profileImage from '../../public/images/profile.jpg';
 ---
 <header class="site-header">
     <div class="header-content">
       <a href="/" class="logo-container">
         <div class="logo-image-wrapper">
-          <img src="/images/profile.jpg" alt="Foto de Armando Ochoa" class="profile-pic" />
+          <img src={profileImage.src} alt="Foto de Armando Ochoa" class="profile-pic" />
         </div>
         <span class="logo-text">Armando Ochoa</span>
       </a>
