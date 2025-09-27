@@ -6,49 +6,85 @@ interface Props {
   link: string;
   tags: string[];
 }
-
 const { title, description, link, tags } = Astro.props;
 ---
 
 <div class="card">
-  <h3>{title}</h3>
-  <p>{description}</p>
-  <div class="tags">
-    {tags.map(tag => <span class="tag">{tag}</span>)}
+  <div class="card-content">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-description">{description}</p>
   </div>
-  <a href={link} target="_blank" rel="noopener noreferrer" class="link">Ver Proyecto &rarr;</a>
+  <div class="card-footer">
+    <div class="tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+    <a href={link} target="_blank" rel="noopener noreferrer" class="link">Ver Proyecto &rarr;</a>
+  </div>
 </div>
 
 <style>
   .card {
-    border: 1px solid #334155;
-    background-color: #1e293b;
-    border-radius: 0.5rem;
+    /* Estructura y Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el footer hacia abajo */
+    height: 100%; /* Asegura que todas las tarjetas en una fila tengan la misma altura */
+
+    /* Estilo Minimalista */
+    background-color: var(--color-fondo-secundario); /* Fondo blanco */
+    border-radius: 8px;
     padding: 1.5rem;
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    
+    /* Transiciones para Innovación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+
   .card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada al pasar el mouse */
   }
-  h3 {
-    margin-top: 0;
-    color: #f1f5f9;
+
+  /* --- Contenido de la Tarjeta --- */
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin: 0 0 0.75rem 0;
   }
+
+  .card-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-texto-secundario);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* --- Pie de la Tarjeta --- */
+  .card-footer {
+    margin-top: 1.5rem; /* Espacio entre la descripción y el footer */
+  }
+
   .tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
-    margin: 1rem 0;
+    margin-bottom: 1.5rem;
   }
+
   .tag {
-    background-color: var(--color-primario);
-    color: white;
+    background-color: rgba(66, 153, 225, 0.1); /* Fondo del tag más sutil */
+    color: var(--color-texto-principal); /* Texto del tag con el color primario */
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
   }
+
   .link {
-    color: var(--color-primario);
+    color: var(--color-texto-principal);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: var(--font-size-sm);
   }
 </style>

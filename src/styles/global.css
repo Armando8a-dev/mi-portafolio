@@ -8,6 +8,11 @@
   --color-texto-principal: #2d3748;
   --color-texto-secundario: #718096;
   --color-primario: #4299e1;
+
+  --font-size-xl: 2.5rem;  /* Títulos principales de sección */
+  --font-size-lg: 1.75rem; /* Subtítulos o títulos de contenido */
+  --font-size-md: 1rem;    /* Texto de párrafo normal */
+  --font-size-sm: 0.9rem; /* Texto pequeño o etiquetas */
 }
 
 html {

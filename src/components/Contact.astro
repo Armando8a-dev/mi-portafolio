@@ -4,179 +4,127 @@
 
 <section id="contact" class="page-section">
     <div class="container">
-        <h2 class="heading-sec_mb-med">
-            <span class="heading-sec_main">Contacto</span>
-            <span class="heading-sec_sub"
-                >¿Tienes alguna pregunta o quieres trabajar juntos? Completa el
-                formulario y me pondré en contacto contigo lo antes posible..</span
-            >
-        </h2>
+        <div class="heading-container">
+            <h2 class="heading-main">Contacto</h2>
+            <p class="heading-sub">
+                ¿Tienes alguna pregunta o quieres trabajar juntos? Completa el
+                formulario y me pondré en contacto contigo lo antes posible.
+            </p>
+        </div>
+
         <div class="form-container">
             <form action="https://formspree.io/f/mblzlndn" method="POST">
                 <div class="form-group">
-                    <label class="form-label" for="name">Nombre</label>
+                    <label for="name" class="form-label">Nombre</label>
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        required
-                        placeholder="Ingresa tu nombre"
                         class="form-input"
+                        required
                     />
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
+                    <label for="email" class="form-label">Email</label>
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        required
-                        placeholder="Ingresa tu email"
                         class="form-input"
+                        required
                     />
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="message">Mensaje</label>
+                    <label for="message" class="form-label">Mensaje</label>
                     <textarea
                         id="message"
                         name="message"
                         rows="5"
-                        required
                         class="form-input"
-                        placeholder="Ingresa tu mensaje"></textarea>
+                        required></textarea>
                 </div>
-                <button class="btn btn-theme contact_btn" type="submit"
-                    >Enviar</button
-                >
+                <button type="submit" class="btn">Enviar Mensaje</button>
             </form>
         </div>
     </div>
 </section>
 
 <style>
-    .form-input {
-        color: rgb(51, 51, 51);
-        width: 100%;
-        font-size: 14px;
-        letter-spacing: 0px;
-        font-weight: 600;
-        padding: 2rem;
-        border-width: 1px;
-        border-style: solid;
-        border-color: rgb(235, 235, 235);
-        border-image: initial;
-        background: rgb(240, 240, 240);
-        border-radius: 5px;
-    }
-    .form-label {
-        color: rgb(102, 102, 102);
-        font-size: 16px;
-        letter-spacing: 1px;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        display: block;
-        text-align: left;
-    }
-    .contact_btn {
-        width: 30%;
-        font-size: medium;
-        padding: 16px;
-    }
-    .content-section {
-        padding: 100px 0;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    .form-container {
-        background-color: var(--color-fondo-secundario, #fff);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        max-width: 600px;
-        margin: 2rem auto 0;
-        text-align: center;
-    }
-    .form-group {
-        margin-bottom: 1.5rem;
-        text-align: left;
-    }
-    label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 600;
-        color: var(--color-texto-secundario);
-    }
-
-    .content-title {
-        font-weight: 700;
-        font-size: 2.8rem;
-        margin-bottom: 3rem;
-    }
-    .btn-theme {
-        color: rgb(255, 255, 255);
-        background: rgb(7, 9, 129);
-    }
-
-    .btn-med {
-        font-size: 1.6rem;
-        padding: 1.5rem 5rem;
-    }
-
-    .content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10rem;
-    }
-    .main-container {
-        max-width: 120rem;
-        width: 92%;
-        margin: auto;
-    }
-
-    .heading-sec_mb-med {
-        margin-bottom: 9rem;
-    }
-
-    .heading-sec_main {
-        display: block;
-        font-size: 4rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        text-align: center;
-        margin-bottom: 3.5rem;
-        position: relative;
-        color: rgb(17, 17, 17);
-    }
-
-    .heading-sec_main::after {
-        content: "";
-        position: absolute;
-        top: calc(100% + 1.5rem);
-        height: 5px;
-        width: 3rem;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgb(7, 9, 129);
-        border-radius: 5px;
-    }
-
-    .heading-sec_sub {
-        display: block;
-        text-align: center;
-        color: rgb(85, 85, 85);
-        font-size: 2rem;
-        font-weight: 500;
-        max-width: 80rem;
-        line-height: 1.6;
-        margin: auto;
-    }
-
     .page-section {
         padding: 6rem 0;
     }
     .container {
-        max-width: 1100px; /* Ancho máximo del contenido */
-        width: 90%; /* En pantallas pequeñas, deja un pequeño margen */
-        margin: 0 auto; /* Centra el contenedor */
+        max-width: 1100px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* --- Títulos --- */
+    .heading-container {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+    .heading-main {
+        font-size: var(--font-size-xl);
+        margin-bottom: 1rem;
+    }
+    .heading-sub {
+        font-size: var(--font-size-md);
+        color: var(--color-texto-secundario);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* --- Formulario --- */
+    .form-container {
+        max-width: 700px;
+        margin: 0 auto;
+        background-color: var(--color-fondo-secundario);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: var(--font-size-sm);
+        color: var(--color-texto-secundario);
+    }
+    .form-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: var(--font-size-md);
+        font-family: inherit; /* Hereda la fuente 'Poppins' */
+        background-color: var(--color-fondo);
+        color: var(--color-texto-principal);
+    }
+    .form-input:focus {
+        outline: none;
+        border-color: var(--color-primario);
+    }
+
+    /* --- Botón --- */
+    .btn {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        background: var(--color-texto-principal);
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        font-weight: 700;
+        font-size: var(--font-size-md);
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .btn:hover {
+        opacity: 0.9;
     }
 </style>

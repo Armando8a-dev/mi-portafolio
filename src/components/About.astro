@@ -49,47 +49,65 @@ import SkillIcon from "./SkillIcon.astro";
     padding: 6rem 0;
   }
   .container {
-    max-width: 1100px; /* Ancho máximo del contenido */
-    width: 90%;       /* En pantallas pequeñas, deja un pequeño margen */
-    margin: 0 auto;   /* Centra el contenedor */
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
   }
+
+  /* --- Títulos --- */
   .heading-container {
     text-align: center;
     margin-bottom: 4rem;
   }
   .heading-main {
-    font-size: 2.5rem;
+    font-size: var(--font-size-xl);
     margin-bottom: 1rem;
   }
   .heading-sub {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: var(--font-size-md);
+    color: var(--color-texto-secundario);
     max-width: 600px;
     margin: 0 auto;
   }
+
+  /* --- Contenido de 2 Columnas --- */
   .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dos columnas en escritorio */
     gap: 4rem;
+    align-items: flex-start; /* Alinea las columnas por la parte superior */
   }
   .content-title {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-lg);
     margin-bottom: 1.5rem;
   }
+  .about-column p {
+    font-size: var(--font-size-md);
+    line-height: 1.7;
+    color: var(--color-texto-secundario);
+  }
+
+  /* --- Cuadrícula de Habilidades --- */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
     gap: 1rem;
   }
+
+  /* --- Botón --- */
   .btn {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.75rem 1.5rem;
-    background: var(--color-primario, #4299e1);
+    background: var(--color-texto-principal);
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    opacity: 0.9;
   }
 
   /* --- REGLAS PARA RESPONSIVO (MÓVIL) --- */
