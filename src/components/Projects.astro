@@ -1,11 +1,10 @@
 ---
 // src/components/Projects.astro
-import SectionHeader from "./SectionHeader.astro";
 import ProjectCard from "./ProjectCard.astro";
 ---
 
-<section id="projects" class="content-section">
-    <div class="main-container">
+<section id="projects" class="page-section">
+    <div class="container">
         <div class="main-container">
             <h2 class="heading-sec_mb-med">
                 <span class="heading-sec_main">PROYECTOS</span>
@@ -40,11 +39,36 @@ import ProjectCard from "./ProjectCard.astro";
     </div>
 
     <style>
-        .main-container {
-            max-width: 120rem;
-            width: 92%;
-            margin: auto;
+        section {
+            padding: 5rem 0;
+            width: 100%;
+            background-color: #f9f9f9; /* Un fondo ligeramente diferente para separar secciones */
         }
+        .main-container {
+            max-width: 1100px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .heading-container {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .heading-main {
+            font-size: 2.5rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- REGLAS PARA RESPONSIVO (MÓVIL) --- */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr; /* UNA SOLA COLUMNA EN MÓVIL */
+            }
+        }
+
         .about_content-details-para:last-child {
             margin-bottom: 4rem;
         }
@@ -123,6 +147,15 @@ import ProjectCard from "./ProjectCard.astro";
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
+        }
+
+        .page-section {
+            padding: 6rem 0;
+        }
+        .container {
+            max-width: 1100px; /* Ancho máximo del contenido */
+            width: 90%; /* En pantallas pequeñas, deja un pequeño margen */
+            margin: 0 auto; /* Centra el contenedor */
         }
     </style>
 </section>

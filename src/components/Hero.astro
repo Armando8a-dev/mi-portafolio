@@ -4,8 +4,8 @@ import { Icon } from "astro-icon/components";
 // src/components/Hero.astro
 ---
 
-<section class="hero">
-  <div class="content">
+<section class="hero" class="page-section">
+  <div class="container">
     <h1 class="heading-primary">Hola, soy Armando Ochoa</h1>
     <div class="info">
       <p class="text-primary">
@@ -165,4 +165,24 @@ import { Icon } from "astro-icon/components";
     width: 100%;
     line-height: 1.6;
   }         
+
+  /* --- REGLAS PARA RESPONSIVO (MÓVIL) --- */
+  @media (max-width: 768px) {
+    .hero {
+      text-align: center; /* Centra todo el texto */
+    }
+    .cta-button {
+      align-self: center; /* Centra el botón */
+    }
+  }
+
+  .page-section {
+    padding: 6rem 0;
+  }
+  .container {
+    max-width: 1100px; /* Ancho máximo del contenido */
+    width: 90%;       /* En pantallas pequeñas, deja un pequeño margen */
+    margin: 0 auto;   /* Centra el contenedor */
+  }
+
 </style>

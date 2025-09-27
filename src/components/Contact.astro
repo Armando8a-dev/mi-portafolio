@@ -1,10 +1,9 @@
 ---
 // src/components/Contact.astro
-import SectionHeader from "./SectionHeader.astro";
 ---
 
-<section id="contact" class="content-section">
-    <div class="main-container">
+<section id="contact" class="page-section">
+    <div class="container">
         <h2 class="heading-sec_mb-med">
             <span class="heading-sec_main">Contacto</span>
             <span class="heading-sec_sub"
@@ -44,8 +43,7 @@ import SectionHeader from "./SectionHeader.astro";
                         rows="5"
                         required
                         class="form-input"
-                        placeholder="Ingresa tu mensaje"
-                        ></textarea>
+                        placeholder="Ingresa tu mensaje"></textarea>
                 </div>
                 <button class="btn btn-theme contact_btn" type="submit"
                     >Enviar</button
@@ -171,5 +169,14 @@ import SectionHeader from "./SectionHeader.astro";
         max-width: 80rem;
         line-height: 1.6;
         margin: auto;
+    }
+
+    .page-section {
+        padding: 6rem 0;
+    }
+    .container {
+        max-width: 1100px; /* Ancho máximo del contenido */
+        width: 90%; /* En pantallas pequeñas, deja un pequeño margen */
+        margin: 0 auto; /* Centra el contenedor */
     }
 </style>

@@ -57,7 +57,6 @@ import { Icon } from "astro-icon/components";
   .main-footer__upper {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
     gap: 10rem;
     padding: 8rem 0;
   }
@@ -111,16 +110,16 @@ import { Icon } from "astro-icon/components";
   @media (max-width: 900px) {
     
     .main-footer__upper {
-      flex-direction: column;
-      align-items: center;
-      gap: 4rem; 
+      flex-direction: column; /* Apila los elementos */
+      align-items: center;   /* Centra los bloques apilados */
+      gap: 4rem;
       text-align: center;
       padding: 4rem 0;
     }
 
     .main-footer__row-1,
     .main-footer__row-2 {
-      order: 0;
+      order: 0; /* Resetea el orden para un flujo natural */
       width: 100%;
       max-width: 50rem;
     }
