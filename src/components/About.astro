@@ -2,12 +2,14 @@
 // src/components/About.astro
 import SkillIcon from "./SkillIcon.astro";
 ---
+
 <section id="about" class="page-section">
   <div class="container">
     <div class="heading-container">
       <h2 class="heading-main">Sobre Mí</h2>
       <p class="heading-sub">
-        Aquí encontrarás más información sobre mí, lo que hago y mis habilidades.
+        Aquí encontrarás más información sobre mí, lo que hago y mis
+        habilidades.
       </p>
     </div>
 
@@ -16,7 +18,12 @@ import SkillIcon from "./SkillIcon.astro";
       <div class="about-column">
         <h3 class="content-title">¡Conóceme!</h3>
         <p>
-          Soy un desarrollador Full Stack actualmente enfocado en el Frontend. Disfruto creando experiencias de usuario accesibles, atractivas y que contribuyen al éxito del producto.
+          Soy <strong>Desarrollador Full Stack</strong> con especial enfoque en <strong>Frontend</strong>. Me
+          motiva construir interfaces accesibles, atractivas y de alto
+          rendimiento que generen valor en cada proyecto. Actualmente,
+          complemento mi trayectoria con formación como <strong>Analista de datos</strong>, lo que
+          me permite proponer soluciones basadas en información objetiva para
+          optimizar productos digitales y procesos.
         </p>
         <a href="#contact" class="btn">Contáctame</a>
       </div>
@@ -26,6 +33,8 @@ import SkillIcon from "./SkillIcon.astro";
         <h3 class="content-title">Mis Habilidades</h3>
         <div class="skills-grid">
           <SkillIcon name="Angular" icon="simple-icons:angular" />
+          <SkillIcon name="React" icon="simple-icons:react" />
+          <SkillIcon name="Astro" icon="simple-icons:astro" />
           <SkillIcon name="JavaScript" icon="simple-icons:javascript" />
           <SkillIcon name="TypeScript" icon="simple-icons:typescript" />
           <SkillIcon name="HTML" icon="simple-icons:html5" />

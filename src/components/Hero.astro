@@ -1,15 +1,15 @@
 ---
-import { Icon } from "astro-icon/components";
-
 // src/components/Hero.astro
 ---
 
 <section class="hero">
   <div class="hero-content">
-    <h1 class="title">Hola, soy Armando Ochoa</h1>
+    <h1 class="title">HOLA, SOY ARMANDO OCHOA</h1>
     <p class="description">
-      Un desarrollador web orientado a resultados que crea y administra sitios
-      y aplicaciones web que conducen al éxito del producto general.
+      Apasionado por crear aplicaciones y sitios web funcionales, optimizados y
+      orientados a resultados. Busco combinar mi experiencia en desarrollo con
+      el análisis de datos para impulsar la toma de decisiones y el crecimiento
+      de los productos digitales.
     </p>
   </div>
   <div class="scroll-indicator">
@@ -19,28 +19,25 @@ import { Icon } from "astro-icon/components";
 
 <style>
   .hero {
-    min-height: 100vh; /* Usa min-height para más flexibilidad */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centra el contenido horizontalmente */
+    /* SOLUCIÓN: Controla el espacio con padding, no con min-height ni flexbox */
+    padding: 10rem 2rem; /* Espacio generoso arriba y abajo */
     position: relative;
-    padding: 2rem;
-    text-align: center; /* Centra el texto por defecto */
+    text-align: center;
   }
 
   .hero-content {
-    max-width: 750px; /* Limita el ancho del texto para mejor legibilidad */
+    max-width: 1000px;
+    margin: 0 auto; /* Centra el contenedor de texto horizontalmente */
   }
 
   .title {
-    font-size: clamp(2.5rem, 8vw, 4rem); /* Título grande y responsivo */
+    font-size: clamp(2.2em, 8vw, 4rem);
     color: var(--color-texto-principal);
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
   }
 
   .description {
-    font-size: var(--font-size-md);
+    font-size: 1.1rem;
     color: var(--color-texto-secundario);
     line-height: 1.7;
     margin: 0;
@@ -49,7 +46,7 @@ import { Icon } from "astro-icon/components";
   /* --- Animación del Mouse --- */
   .scroll-indicator {
     position: absolute;
-    bottom: 2rem; /* Posiciona en la parte inferior */
+    bottom: 2rem;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -86,5 +83,4 @@ import { Icon } from "astro-icon/components";
       top: 25px;
     }
   }
-
 </style>
