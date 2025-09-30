@@ -125,4 +125,11 @@ import SkillIcon from "./SkillIcon.astro";
       grid-template-columns: 1fr; /* UNA SOLA COLUMNA EN MÓVIL */
     }
   }
+
+  /* --- Media Query para móviles --- */
+  @media (max-width: 768px) {
+    .heading-main { /* <-- Reemplaza si tu selector es diferente (ej. h1) */
+      font-size: 2.5rem; /* <-- Ajusta este valor hasta que se vea bien */
+    }
+  }
 </style>
