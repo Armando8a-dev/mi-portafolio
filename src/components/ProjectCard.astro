@@ -24,17 +24,16 @@ const { title, description, link, tags } = Astro.props;
 
 <style>
   .card {
-    /* Estructura y Layout */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Empuja el footer hacia abajo */
-    height: 100%; /* Asegura que todas las tarjetas en una fila tengan la misma altura */
+    justify-content: space-between;
+    height: 100%;
 
     /* Estilo Minimalista */
-    background-color: var(--color-fondo-secundario); /* Fondo blanco */
+    background-color: var(--color-fondo-secundario);
     border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     
     /* Transiciones para Innovación */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -42,7 +41,7 @@ const { title, description, link, tags } = Astro.props;
 
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   }
 
   /* --- Contenido de la Tarjeta --- */
@@ -62,7 +61,7 @@ const { title, description, link, tags } = Astro.props;
 
   /* --- Pie de la Tarjeta --- */
   .card-footer {
-    margin-top: 1.5rem; /* Espacio entre la descripción y el footer */
+    margin-top: 1.5rem;
   }
 
   .tags {
@@ -73,8 +72,8 @@ const { title, description, link, tags } = Astro.props;
   }
 
   .tag {
-    background-color: rgba(66, 153, 225, 0.1); /* Fondo del tag más sutil */
-    color: var(--color-texto-principal); /* Texto del tag con el color primario */
+    background-color: rgba(66, 153, 225, 0.1);
+    color: var(--color-texto-principal);
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.75rem;

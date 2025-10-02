@@ -1,13 +1,16 @@
 ---
 // src/components/Footer.astro
 import { Icon } from "astro-icon/components";
+
+const isDataAnalyst = true; // Cambia a `false` para cambiar a dev
+const linkedInURL = isDataAnalyst
+  ? "https://www.linkedin.com/in/armando-ochoa-data-analyst"
+  : "https://www.linkedin.com/in/armando-ochoa-dev";
 ---
 
 <footer class="site-footer">
   <div class="container">
-    <!-- Contenido Superior: Ahora con el orden correcto -->
     <div class="footer-upper">
-      <!-- Columna 1: Información (AHORA PRIMERO) -->
       <div class="footer-column footer-info">
         <h3 class="footer-title">Armando Ochoa</h3>
         <p>
@@ -17,7 +20,6 @@ import { Icon } from "astro-icon/components";
         </p>
       </div>
 
-      <!-- Columna 2: Social (AHORA SEGUNDO) -->
       <div class="footer-column footer-social">
         <h3 class="footer-title">Social</h3>
         <div class="social-icons">
@@ -30,7 +32,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="simple-icons:github" />
           </a>
           <a
-            href="https://www.linkedin.com/in/armando-ochoa-dev"
+            href={linkedInURL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -41,7 +43,6 @@ import { Icon } from "astro-icon/components";
       </div>
     </div>
 
-    <!-- Contenido Inferior: Créditos -->
     <div class="footer-lower">
       <p>&copy; {new Date().getFullYear()} - Hecho por Armando Ochoa</p>
     </div>
