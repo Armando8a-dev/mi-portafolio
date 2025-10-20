@@ -1,0 +1,24 @@
+---
+const { title, context, approach, impact, tags = [], repoUrl = '', demoUrl = '' } = Astro.props;
+---
+
+<article class="rounded-xl border border-gray-200 p-5 transition hover:shadow-md bg-white">
+  <header class="mb-3">
+    <h3 class="text-xl font-semibold">{title}</h3>
+    <p class="text-sm text-gray-600 mt-1">{context}</p>
+  </header>
+
+  <ul class="text-sm space-y-1 mb-4">
+    <li><strong>Enfoque:</strong> {approach}</li>
+    <li><strong>Impacto:</strong> {impact}</li>
+  </ul>
+
+  <div class="flex flex-wrap gap-2 mb-4">
+    {tags.map((t) => (<span class="text-xs border px-2 py-1 rounded-full">{t}</span>))}
+  </div>
+
+  <div class="flex items-center gap-3">
+    {repoUrl && (<a href={repoUrl} target="_blank" rel="noopener noreferrer" class="underline text-sm">Repo/Notebook</a>)}
+    {demoUrl && (<a href={demoUrl} target="_blank" rel="noopener noreferrer" class="underline text-sm">Dashboard demo</a>)}
+  </div>
+</article>
