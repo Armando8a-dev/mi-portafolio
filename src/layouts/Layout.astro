@@ -1,34 +1,21 @@
 ---
-// src/layouts/Layout.astro
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/global.css';
-
-interface Props {
-    title: string;
-}
-const { title } = Astro.props;
+import SiteSEO from '../components/SiteSEO.astro'
+import { NAV_LINKS } from '../data/navLinks.ts'
 ---
 
-<!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <title>{title}</title>
-    </head>
-    <body>
-        <Navbar />
-        <main>
-            <slot />
-        </main>
-        <Footer />
-    </body>
+  <SiteSEO title={Astro.props.title} description={Astro.props.description} />
+  <body class="min-h-screen bg-white text-gray-900">
+    <header class="border-b">
+      <nav class="mx-auto max-w-5xl px-6 h-14 flex items-center gap-6">
+        <a href="/" class="font-semibold">Armando Ochoa</a>
+        <ul class="flex items-center gap-4 ml-auto text-sm">
+          {NAV_LINKS.map((l) => (<li><a href={l.href} class="hover:underline">{l.label}</a></li>))}
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
-
-<style>
-    main {
-        padding-top: 80px; 
-    }
-</style>
