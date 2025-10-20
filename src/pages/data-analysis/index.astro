@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import DataProjectCard from '../../components/DataProjectCard.astro'
+
+const projects = [
+  {
+    title: 'Customer Segmentation (K-Means + RFM)',
+    context: 'Segmentación de clientes para marketing orientado por valor y frecuencia.',
+    approach: 'EDA con Pandas, ingeniería de features RFM, clustering con K-Means, validación con silhouette.',
+    impact: 'Identificación de 4 segmentos; potencial +12% en conversión dirigida.',
+    tags: ['Python','Pandas','Scikit-learn','Matplotlib'],
+    repoUrl: 'https://github.com/Armando8a-dev/customer-segmentation-data',
+    demoUrl: '',
+  },
+  {
+    title: 'Churn Prediction (Logistic/Tree)',
+    context: 'Modelo para identificar clientes con alta probabilidad de abandono.',
+    approach: 'Limpieza de datos, encoding, class weights, evaluación ROC-AUC/PR.',
+    impact: 'AUC 0.84 en validación; priorización de retención por top 20% riesgo.',
+    tags: ['Python','Scikit-learn','Imbalanced-learn','SQL'],
+    repoUrl: 'https://github.com/Armando8a-dev/churn-prediction',
+    demoUrl: '',
+  },
+  {
+    title: 'Financial Dashboard (Power BI)',
+    context: 'Seguimiento de ingresos, margen y regiones con slicers y targets.',
+    approach: 'Modelo de datos limpio, DAX para métricas y periodos móviles.',
+    impact: 'Tiempo de reporte -18%; claridad ejecutiva en KPIs clave.',
+    tags: ['Power BI','DAX','Data Modeling'],
+    repoUrl: 'https://github.com/Armando8a-dev/financial-visualization-data',
+    demoUrl: 'https://app.powerbi.com/',
+  },
+]
+
+---
+
+<Layout title="Data Analysis" description="Proyectos de análisis con Python/SQL/Power BI">
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold">Data Analysis</h1>
+      <p class="mt-3 text-base text-gray-600">Análisis con Python, SQL, Power BI y storytelling con datos.</p>
+    </header>
+
+    <div class="grid gap-6 sm:grid-cols-2">
+      {projects.map((p) => (<DataProjectCard {...p} />))}
+    </div>
+  </section>
+</Layout>
