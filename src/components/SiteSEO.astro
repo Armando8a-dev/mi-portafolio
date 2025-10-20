@@ -1,0 +1,17 @@
+---
+// Componente SEO reutilizable para páginas
+const { title = 'Armando Ochoa — Portafolio', description = 'Desarrollador Full Stack + Data Analyst', image = '/og-default.png' } = Astro.props;
+---
+
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content={image} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
