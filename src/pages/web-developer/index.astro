@@ -1,0 +1,211 @@
+---
+import Layout from "../../layouts/PortfolioLayout.astro";
+import Header from "../../components/PortfolioHeader.astro";
+import Footer from "../../components/PortfolioFooter.astro";
+import ProjectDevCard from "../../components/ProjectDevCard.astro";
+import SkillIcon from "../../components/SkillIcon.astro";
+---
+
+<Layout
+  title="Armando Ochoa - WD"
+  description="Portfolio de Desarrollador Web - Armando Ochoa"
+  favicon="💻"
+>
+  <Header currentPath="/web-developer" />
+
+  <section class="home-hero">
+    <div class="home-hero__content">
+      <h1 class="heading-primary">HOLA, SOY ARMANDO OCHOA</h1>
+      <div class="home-hero__info">
+        <p class="text-primary">
+          Desarrollador Web Full Stack apasionado por crear experiencias
+          digitales intuitivas y funcionales. Me especializo en construir
+          aplicaciones web modernas, optimizadas y escalables que resuelven
+          problemas reales y mejoran la vida de los usuarios.
+        </p>
+      </div>
+    </div>
+
+    <div class="home-hero__mouse-scroll-cont">
+      <div class="mouse"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about sec-pad">
+    <div class="main-container">
+      <h2 class="heading heading-sec heading-sec__mb-med">
+        <span class="heading-sec__main">Sobre Mí</span>
+        <span class="heading-sec__sub">
+          Aquí encontrarás más información sobre mí, lo que hago y mis
+          habilidades.
+        </span>
+      </h2>
+      <div class="about__content">
+        <div class="about__content-main">
+          <h3 class="about__content-title">¡Conóceme!</h3>
+          <div class="about__content-details">
+            <p class="about__content-details-para">
+              Soy <strong>Desarrollador Web Full Stack </strong> con pasión por crear
+              soluciones digitales innovadoras que marquen la diferencia. Me especializo
+              en el desarrollo de aplicaciones web modernas, responsivas y optimizadas,
+              utilizando las últimas tecnologías y mejores prácticas de la industria.
+              <br />
+              <br />
+              Mi experiencia abarca desde el diseño de interfaces de usuario atractivas
+              hasta la implementación de arquitecturas backend robustas. He trabajado
+              con tecnologías como Angular, React, JavaScript/TypeScript, y diversos
+              frameworks que me permiten construir experiencias web completas y escalables.
+              <br />
+              <br />
+              Me motiva resolver problemas complejos mediante código limpio y eficiente.
+              Creo firmemente en la importancia de la experiencia del usuario y en
+              el desarrollo ágil. Mi objetivo es seguir aprendiendo y mejorando constantemente
+              para crear productos digitales que no solo funcionen bien, sino que
+              también deleiten a quienes los utilizan.
+            </p>
+          </div>
+          <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr"
+            >Contactame</a
+          >
+        </div>
+        <div class="about__content-skills">
+          <h3 class="about__content-title">Mis Habilidades</h3>
+          <div class="skills-grid">
+            <SkillIcon name="Angular" icon="simple-icons:angular" />
+            <SkillIcon name="React" icon="simple-icons:react" />
+            <SkillIcon name="Astro" icon="simple-icons:astro" />
+            <SkillIcon name="Next.js" icon="simple-icons:nextdotjs" />
+            <SkillIcon name="JavaScript" icon="simple-icons:javascript" />
+            <SkillIcon name="TypeScript" icon="simple-icons:typescript" />
+            <SkillIcon name="HTML5" icon="simple-icons:html5" />
+            <SkillIcon name="CSS3" icon="simple-icons:css3" />
+            <SkillIcon name="Node.js" icon="simple-icons:nodedotjs" />
+            <SkillIcon name="Java" icon="simple-icons:openjdk" />
+            <SkillIcon name="Spring" icon="simple-icons:spring" />
+            <SkillIcon name="PostgreSQL" icon="simple-icons:postgresql" />
+            <SkillIcon name="Git" icon="simple-icons:git" />
+            <SkillIcon name="Tailwind" icon="simple-icons:tailwindcss" />
+            <SkillIcon name="Sass" icon="simple-icons:sass" />
+            <SkillIcon name="OpenShift" icon="simple-icons:redhatopenshift" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects sec-pad">
+    <div class="main-container">
+      <h2 class="heading heading-sec heading-sec__mb-bg">
+        <span class="heading-sec__main">Proyectos</span>
+        <span class="heading-sec__sub">
+          Aquí puedes encontrar algunos de los proyectos en los que he
+          trabajado.
+        </span>
+      </h2>
+
+      <div class="projects-grid">
+        <ProjectDevCard
+          title="Mi Portafolio"
+          description="Portafolio personal construido con Astro y desplegado con GitHub Pages. Diseñado para ser rápido, responsivo y mostrar mis habilidades."
+          link="https://github.com/Armando8a-dev/mi-portafolio"
+          tags={["Astro", "JavaScript", "CSS"]}
+        />
+        
+        <ProjectDevCard
+          title="Invitación para Boda"
+          description="Invitación de boda digital e interactiva. Una alternativa moderna para compartir los detalles del evento, como la fecha, ubicación y confirmación de asistencia. Construida con React para una experiencia de usuario fluida y atractiva."
+          link="https://invitation-wedding-ui.netlify.app"
+          tags={["React", "JavaScript", "Tailwind CSS"]}
+        />
+        
+        <ProjectDevCard
+          title="Landing Kit"
+          description="Plantilla web personalizable para profesionales independientes, enfocada en rapidez, diseño responsivo y facilidad de implementación."
+          link="https://landing-fisio-ui.netlify.app"
+          tags={["Next.js", "Tailwind CSS", "shadcn/ui"]}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact sec-pad dynamicBg">
+    <div class="main-container">
+      <h2 class="heading heading-sec heading-sec__mb-med">
+        <span class="heading-sec__main heading-sec__main--lt">Contactame</span>
+        <span class="heading-sec__sub heading-sec__sub--lt">
+          ¿Tienes alguna pregunta o quieres trabajar juntos? Completa el
+          formulario y me pondré en contacto contigo lo antes posible.
+        </span>
+      </h2>
+      <div class="contact__form-container">
+        <form
+          action="https://formspree.io/f/mblzlndn"
+          method="POST"
+          class="contact__form"
+        >
+          <div class="contact__form-field">
+            <label class="contact__form-label" for="name">Name</label>
+            <input
+              required
+              placeholder="Enter Your Name"
+              type="text"
+              class="contact__form-input"
+              name="name"
+              id="name"
+            />
+          </div>
+          <div class="contact__form-field">
+            <label class="contact__form-label" for="email">Email</label>
+            <input
+              required
+              placeholder="Enter Your Email"
+              type="text"
+              class="contact__form-input"
+              name="email"
+              id="email"
+            />
+          </div>
+          <div class="contact__form-field">
+            <label class="contact__form-label" for="message">Message</label>
+            <textarea
+              required
+              cols="30"
+              rows="10"
+              class="contact__form-input"
+              placeholder="Enter Your Message"
+              name="message"
+              id="message"></textarea>
+          </div>
+          <button type="submit" class="btn btn--theme contact__btn">
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+  }
+</style>

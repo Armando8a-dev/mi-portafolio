@@ -1,0 +1,60 @@
+---
+interface Props {
+  name: string;
+  icon: string;
+  forceColor?: boolean;
+}
+
+const { name, icon, forceColor = false } = Astro.props;
+---
+
+<div class="skill-icon">
+  <iconify-icon 
+    icon={icon} 
+    width="48" 
+    height="48"
+    class={forceColor ? "force-theme-color" : ""}
+  ></iconify-icon>
+  <span class="skill-name">{name}</span>
+</div>
+
+<style>
+  .skill-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .skill-icon:hover {
+    transform: translateY(-5px);
+  }
+
+  .skill-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #666;
+    text-align: center;
+  }
+
+  iconify-icon {
+    color: #0062b9;
+  }
+
+  iconify-icon.force-theme-color {
+    color: #0062b9 !important;
+    filter: none !important;
+  }
+
+  /* Forzar color del tema para iconos específicos */
+  iconify-icon.force-theme-color svg {
+    fill: #0062b9 !important;
+  }
+
+  iconify-icon.force-theme-color svg path {
+    fill: #0062b9 !important;
+    stroke: #0062b9 !important;
+  }
+</style>

@@ -6,78 +6,13 @@
   # Directorio donde Astro genera los archivos estáticos
   publish = "dist"
 
-# IMPORTANTE: Las reglas de proxy DEBEN ir ANTES de la regla catch-all (/*)
-
-# Proxy para portfolios detallados (desde dual-portafolio.netlify.app)
-[[redirects]]
-  from = "/web-developer/*"
-  to = "https://dual-portafolio.netlify.app/web-developer/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/web-developer"
-  to = "https://dual-portafolio.netlify.app/web-developer"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/data-analyst/*"
-  to = "https://dual-portafolio.netlify.app/data-analyst/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/data-analyst"
-  to = "https://dual-portafolio.netlify.app/data-analyst"
-  status = 200
-  force = false
-
-# Versiones en inglés (si existen en dual-portafolio)
-[[redirects]]
-  from = "/en/web-developer/*"
-  to = "https://dual-portafolio.netlify.app/en/web-developer/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/en/web-developer"
-  to = "https://dual-portafolio.netlify.app/en/web-developer"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/en/data-analyst/*"
-  to = "https://dual-portafolio.netlify.app/en/data-analyst/:splat"
-  status = 200
-  force = false
-
-[[redirects]]
-  from = "/en/data-analyst"
-  to = "https://dual-portafolio.netlify.app/en/data-analyst"
-  status = 200
-  force = false
-
-# Redirecciones de subdominios antiguos
-[[redirects]]
-  from = "https://wd.armandochoa.com/*"
-  to = "https://armandochoa.com/web-developer/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "https://da.armandochoa.com/*"
-  to = "https://armandochoa.com/data-analyst/:splat"
-  status = 301
-  force = true
-
-# Configuración para el manejo de rutas (DEBE IR AL FINAL - catch-all)
+# Configuración para el manejo de rutas de Astro (catch-all para SPA routing)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Headers de seguridad y rendimiento (opcional pero recomendado)
+# Headers de seguridad y rendimiento
 [[headers]]
   for = "/*"
   [headers.values]
