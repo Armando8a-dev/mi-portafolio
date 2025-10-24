@@ -1,0 +1,175 @@
+---
+// src/components/PortfolioCards.astro
+import { getTranslations } from '../utils/translations';
+
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = getTranslations(currentLang);
+---
+
+<section id="portfolios" class="page-section">
+  <div class="container">
+    <div class="heading-container">
+      <h2 class="heading-main">{t.portfolios.title}</h2>
+      <p class="heading-sub">
+        {t.portfolios.subtitle}
+      </p>
+    </div>
+
+    <div class="portfolios-grid">
+      <!-- Card Data Analyst -->
+      <div class="portfolio-card">
+        <div class="portfolio-card__icon">📊</div>
+        <h3 class="portfolio-card__title">{t.portfolios.dataAnalyst.title}</h3>
+        <p class="portfolio-card__description">
+          {t.portfolios.dataAnalyst.description}
+        </p>
+        <a href="/data-analyst" class="btn btn--data">
+          {t.portfolios.dataAnalyst.button}
+        </a>
+      </div>
+
+      <!-- Card Web Developer -->
+      <div class="portfolio-card">
+        <div class="portfolio-card__icon">💻</div>
+        <h3 class="portfolio-card__title">{t.portfolios.webDeveloper.title}</h3>
+        <p class="portfolio-card__description">
+          {t.portfolios.webDeveloper.description}
+        </p>
+        <a href="/web-developer" class="btn btn--web">
+          {t.portfolios.webDeveloper.button}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .page-section {
+    padding: 6rem 0;
+    background-color: var(--color-fondo);
+  }
+  
+  .container {
+    max-width: 1100px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* --- Títulos --- */
+  .heading-container {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .heading-main {
+    font-size: var(--font-size-xl);
+    margin-bottom: 1rem;
+  }
+  
+  .heading-sub {
+    font-size: var(--font-size-md);
+    color: var(--color-texto-secundario);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* --- Grid de Portafolios --- */
+  .portfolios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* --- Tarjetas de Portfolio --- */
+  .portfolio-card {
+    background-color: var(--color-fondo-secundario);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .portfolio-card__icon {
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .portfolio-card__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-texto-principal);
+    margin: 0;
+  }
+
+  .portfolio-card__description {
+    font-size: var(--font-size-md);
+    color: var(--color-texto-secundario);
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  /* --- Botones --- */
+  .btn {
+    display: inline-block;
+    padding: 0.875rem 2rem;
+    background-color: var(--color-primario);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+  }
+
+  .btn--data {
+    background-color:  var(--color-texto-principal);
+  }
+
+  .btn--data:hover {
+    background-color: var(--color-texto-principal);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn--web {
+    background-color: var(--color-texto-principal);
+  }
+
+  .btn--web:hover {
+    background-color: var(--color-texto-principal);
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .portfolios-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .portfolio-card {
+      padding: 2rem;
+    }
+
+    .portfolio-card__icon {
+      font-size: 3rem;
+    }
+  }
+</style>

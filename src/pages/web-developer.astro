@@ -1,31 +1,29 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import DataProjectGallery from '../components/DataProyectGallery.astro';
-import Contact from '../components/Contact.astro';
+// src/pages/web-developer.astro
+import Layout from "../layouts/Layout.astro";
+import Projects from "../components/Projects.astro";
+import Contact from "../components/Contact.astro";
 import { getTranslations } from '../utils/translations';
 
 const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
 const t = getTranslations(currentLang);
 ---
 
-<Layout 
-  title="Análisis de Datos - Armando Ochoa" 
-  description="Proyectos de análisis de datos con Python, SQL, Power BI y Tableau."
->
+<Layout title="Armando Ochoa - Desarrollador Web">
   <main>
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1 class="title">{t.pages.dataAnalyst.title}</h1>
+        <h1 class="title">{t.pages.webDeveloper.title}</h1>
         <p class="description">
-          {t.pages.dataAnalyst.description}
+          {t.pages.webDeveloper.description}
         </p>
-        <a href="/" class="btn-back">{t.pages.dataAnalyst.backHome}</a>
+        <a href="/" class="btn-back">{t.pages.webDeveloper.backHome}</a>
       </div>
     </section>
 
-    <!-- Galería Visual de Proyectos -->
-    <DataProjectGallery />
+    <!-- Proyectos -->
+    <Projects />
 
     <!-- Contacto -->
     <Contact />
@@ -64,7 +62,7 @@ const t = getTranslations(currentLang);
   .btn-back {
     display: inline-block;
     padding: 0.875rem 2rem;
-    background-color: #667eea;
+    background-color: var(--color-primario);
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -76,7 +74,7 @@ const t = getTranslations(currentLang);
 
   .btn-back:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-    background-color: #5568d3;
+    box-shadow: 0 6px 20px rgba(66, 153, 225, 0.3);
+    background-color: #3182ce;
   }
 </style>

@@ -1,0 +1,149 @@
+---
+// src/components/LanguageSelector.astro
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
+
+// Generar la URL del idioma alternativo
+const getAlternativeUrl = () => {
+  if (currentLang === 'es') {
+    return currentPath === '/' ? '/en' : `/en${currentPath}`;
+  } else {
+    return currentPath.replace('/en', '') || '/';
+  }
+};
+
+const alternativeUrl = getAlternativeUrl();
+---
+
+<div class="language-selector">
+  <button class="lang-toggle" aria-label="Cambiar idioma / Change language">
+    <span class="current-lang">{currentLang === 'es' ? 'ES' : 'EN'}</span>
+  </button>
+  <div class="lang-dropdown">
+    <a href="/" class:list={['lang-option', { active: currentLang === 'es' }]}>
+      <span class="flag-icon">🇲🇽</span>
+      <span>Español</span>
+    </a>
+    <a href={alternativeUrl} class:list={['lang-option', { active: currentLang === 'en' }]}>
+      <span class="flag-icon">🇺🇸</span>
+      <span>English</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const langToggle = document.querySelector('.lang-toggle');
+    const langDropdown = document.querySelector('.lang-dropdown');
+    
+    if (langToggle && langDropdown) {
+      langToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        langDropdown.classList.toggle('show');
+      });
+
+      // Cerrar dropdown al hacer clic fuera
+      document.addEventListener('click', () => {
+        langDropdown.classList.remove('show');
+      });
+    }
+  });
+</script>
+
+<style>
+  .language-selector {
+    position: relative;
+  }
+
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid var(--color-texto-principal);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--color-texto-principal);
+    transition: all 0.3s ease;
+  }
+
+  .lang-toggle:hover {
+    background-color: var(--color-texto-principal);
+    color: white;
+  }
+
+  .current-lang {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .flag-icon {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .lang-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--color-texto-principal);
+    transition: background-color 0.2s ease;
+  }
+
+  .lang-option:hover {
+    background-color: var(--color-fondo);
+  }
+
+  .lang-option.active {
+    background-color: rgba(66, 153, 225, 0.1);
+    color: var(--color-primario);
+    font-weight: 600;
+  }
+
+  .lang-option:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .lang-option:last-child {
+    border-radius: 0 0 8px 8px;
+  }
+
+  @media (max-width: 768px) {
+    .lang-toggle {
+      padding: 0.4rem 0.8rem;
+    }
+
+    .current-lang {
+      font-size: 0.85rem;
+    }
+  }
+</style>

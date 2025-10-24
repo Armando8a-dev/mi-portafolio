@@ -1,15 +1,16 @@
 ---
 // src/components/Hero.astro
+import { getTranslations } from '../utils/translations';
+
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = getTranslations(currentLang);
 ---
 
 <section class="hero">
   <div class="hero-content">
-    <h1 class="title">HOLA, SOY ARMANDO OCHOA</h1>
+    <h1 class="title">{t.hero.greeting}</h1>
     <p class="description">
-      Apasionado por crear aplicaciones y sitios web funcionales, optimizados y
-      orientados a resultados. Busco combinar mi experiencia en desarrollo con
-      el análisis de datos para impulsar la toma de decisiones y el crecimiento
-      de los productos digitales.
+      {t.hero.description}
     </p>
   </div>
   <div class="scroll-indicator">
@@ -22,6 +23,7 @@
     padding: 6rem 2rem;
     position: relative;
     text-align: center;
+    background-color: var(--color-fondo);
   }
 
   .hero-content {

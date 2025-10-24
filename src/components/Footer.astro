@@ -1,6 +1,10 @@
 ---
 // src/components/Footer.astro
 import { Icon } from "astro-icon/components";
+import { getTranslations } from '../utils/translations';
+
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = getTranslations(currentLang);
 
 const isDataAnalyst = true; // Cambia a `false` para cambiar a dev
 const linkedInURL = isDataAnalyst
@@ -14,16 +18,12 @@ const linkedInURL = isDataAnalyst
       <div class="footer-column footer-info">
         <h3 class="footer-title">Armando Ochoa</h3>
         <p>
-          <p>
-            Desarrollador Frontend y Analista de Datos. Creo
-            experiencias web y soluciones basadas en datos que impulsan el éxito
-            del proyecto.
-          </p>
+          {t.footer.description}
         </p>
       </div>
 
       <div class="footer-column footer-social">
-        <h3 class="footer-title">Social</h3>
+        <h3 class="footer-title">{t.footer.social}</h3>
         <div class="social-icons">
           <a
             href="https://github.com/Armando8a-dev"
@@ -46,7 +46,7 @@ const linkedInURL = isDataAnalyst
     </div>
 
     <div class="footer-lower">
-      <p>&copy; {new Date().getFullYear()} - Hecho por Armando Ochoa</p>
+      <p>&copy; {new Date().getFullYear()} - {t.footer.madeBy}</p>
     </div>
   </div>
 </footer>

@@ -1,36 +1,33 @@
 ---
 // src/components/About.astro
 import SkillIcon from "./SkillIcon.astro";
+import { getTranslations } from '../utils/translations';
+
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+const t = getTranslations(currentLang);
 ---
 
 <section id="about" class="page-section">
   <div class="container">
     <div class="heading-container">
-      <h2 class="heading-main">Sobre Mí</h2>
+      <h2 class="heading-main">{t.about.title}</h2>
       <p class="heading-sub">
-        Aquí encontrarás más información sobre mí, lo que hago y mis
-        habilidades.
+        {t.about.subtitle}
       </p>
     </div>
 
     <div class="about-content">
       <!-- Columna 1: Conóceme -->
       <div class="about-column">
-        <h3 class="content-title">¡Conóceme!</h3>
-        <p>
-          Soy <strong>Desarrollador Full Stack</strong> con especial enfoque en <strong>Frontend</strong>. Me
-          motiva construir interfaces accesibles, atractivas y de alto
-          rendimiento que generen valor en cada proyecto. Actualmente,
-          complemento mi trayectoria con formación como <strong>Analista de datos</strong>, lo que
-          me permite proponer soluciones basadas en información objetiva para
-          optimizar productos digitales y procesos.
+        <h3 class="content-title">{t.about.knowMe}</h3>
+        <p set:html={t.about.description}>
         </p>
-        <a href="#contact" class="btn">Contáctame</a>
+        <a href="#contact" class="btn">{t.about.contactBtn}</a>
       </div>
 
       <!-- Columna 2: Mis Habilidades -->
       <div class="about-column">
-        <h3 class="content-title">Mis Habilidades</h3>
+        <h3 class="content-title">{t.about.skills}</h3>
         <div class="skills-grid">
           <SkillIcon name="Angular" icon="simple-icons:angular" />
           <SkillIcon name="React" icon="simple-icons:react" />
@@ -56,6 +53,7 @@ import SkillIcon from "./SkillIcon.astro";
 <style>
   .page-section {
     padding: 5rem 0;
+    background-color: var(--color-fondo-secundario);
   }
   .container {
     max-width: 1100px;

@@ -1,9 +1,12 @@
 ---
 // src/components/Navbar.astro
 import profileImage from '../assets/images/profile.jpg';
-import { NAV_LINKS } from '../data/navLinks';
+import LanguageSelector from './LanguageSelector.astro';
+import { getNavLinks } from '../data/navLinks';
 
 const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/en') ? 'en' : 'es';
+const NAV_LINKS = getNavLinks(currentLang);
 ---
 <header class="site-header">
   <div class="header-content">
@@ -14,21 +17,25 @@ const currentPath = Astro.url.pathname;
       <span class="logo-text">Armando Ochoa</span>
     </a>
 
-    <nav class="desktop-nav">
-      <ul>
-        {NAV_LINKS.map((link) => (
-          <li>
-            <a 
-              href={link.href} 
-              class:list={['nav-link', { active: currentPath === link.href }]}
-              aria-current={currentPath === link.href ? 'page' : undefined}
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div class="nav-wrapper">
+      <nav class="desktop-nav">
+        <ul>
+          {NAV_LINKS.map((link) => (
+            <li>
+              <a 
+                href={link.href} 
+                class:list={['nav-link', { active: currentPath === link.href }]}
+                aria-current={currentPath === link.href ? 'page' : undefined}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      
+      <LanguageSelector />
+    </div>
 
     <button id="hamburger-btn" class="mobile-nav-toggle" aria-label="Abrir menú">
       <span class="hamburger-line"></span>
@@ -100,18 +107,35 @@ const currentPath = Astro.url.pathname;
     color: var(--color-texto-principal);
   }
   .logo-image-wrapper {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     overflow: hidden;
+    border: 2px solid #000000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+  }
+  .logo-image-wrapper:hover {
+    transform: scale(1.05);
   }
   .profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+    display: block;
   }
   .logo-text {
     font-weight: 700;
+  }
+  .nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
   }
   .desktop-nav ul {
     display: flex;
@@ -126,9 +150,12 @@ const currentPath = Astro.url.pathname;
     font-weight: 500;
     transition: color 0.3s;
   }
-  .nav-link:hover,
+  .nav-link:hover {
+    color: var(--color-texto-principal);
+  }
   .nav-link.active {
-    color: var(--color-primario);
+    color: var(--color-texto-principal);
+    font-weight: 600;
   }
   .nav-link:focus-visible {
     outline: 2px solid var(--color-primario);
@@ -143,6 +170,9 @@ const currentPath = Astro.url.pathname;
 
   @media (max-width: 768px) {
     .desktop-nav {
+      display: none;
+    }
+    .nav-wrapper {
       display: none;
     }
     .mobile-nav-toggle {
