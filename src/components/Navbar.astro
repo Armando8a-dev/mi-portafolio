@@ -33,9 +33,9 @@ const NAV_LINKS = getNavLinks(currentLang);
           ))}
         </ul>
       </nav>
-      
-      <LanguageSelector />
     </div>
+
+    <LanguageSelector />
 
     <button id="hamburger-btn" class="mobile-nav-toggle" aria-label="Abrir menú">
       <span class="hamburger-line"></span>
@@ -169,9 +169,6 @@ const NAV_LINKS = getNavLinks(currentLang);
   }
 
   @media (max-width: 768px) {
-    .desktop-nav {
-      display: none;
-    }
     .nav-wrapper {
       display: none;
     }
