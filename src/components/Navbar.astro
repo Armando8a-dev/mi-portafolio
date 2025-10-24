@@ -20,7 +20,7 @@ const NAV_LINKS = getNavLinks(currentLang);
     <div class="nav-wrapper">
       <nav class="desktop-nav">
         <ul>
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link: { href: string; label: string }) => (
             <li>
               <a 
                 href={link.href} 
@@ -45,7 +45,7 @@ const NAV_LINKS = getNavLinks(currentLang);
   </div>
 
   <div id="mobile-menu" class="mobile-menu">
-    {NAV_LINKS.map((link) => (
+    {NAV_LINKS.map((link: { href: string; label: string }) => (
       <a 
         href={link.href} 
         class="mobile-link"
