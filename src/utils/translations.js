@@ -79,7 +79,7 @@ export const translations = {
       knowMe: "Get to Know Me!",
       description: "I'm a <strong>Full Stack Developer</strong> with a special focus on <strong>Frontend</strong>. I'm motivated to build accessible, attractive, and high-performance interfaces that generate value in every project. Currently, I complement my career with training as a <strong>Data Analyst</strong>, which allows me to propose objective information-based solutions to optimize digital products and processes.",
       skills: "My Skills",
-      contactBtn: "Contact Me"
+      contactBtn: "Contact"
     },
     portfolios: {
       title: "My Portfolios",

@@ -1,5 +1,34 @@
 ---
+interface Props {
+  lang?: 'es' | 'en';
+  profession?: 'web' | 'data';
+}
+
+const { lang = 'es', profession = 'web' } = Astro.props;
 const today = new Date();
+
+const descriptions = {
+  web: {
+    es: 'Creando experiencias web modernas y funcionales',
+    en: 'Creating modern and functional web experiences'
+  },
+  data: {
+    es: 'Transformando datos en decisiones estratégicas',
+    en: 'Transforming data into strategic decisions'
+  }
+};
+
+const translations = {
+  es: {
+    copyright: 'Todos los derechos reservados'
+  },
+  en: {
+    copyright: 'All rights reserved'
+  }
+};
+
+const description = descriptions[profession][lang];
+const t = translations[lang];
 ---
 
 <footer class="main-footer">
@@ -29,13 +58,13 @@ const today = new Date();
       <div class="main-footer__row main-footer__row-2">
         <h4 class="heading heading-sm text-lt">Armando Ochoa</h4>
         <p class="main-footer__short-desc">
-          Transformando datos en decisiones y código en soluciones digitales
+          {description}
         </p>
       </div>
     </div>
 
     <div class="main-footer__lower">
-      &copy; Copyright {today.getFullYear()}. Todos los derechos reservados -
+      &copy; Copyright {today.getFullYear()}. {t.copyright} -
       <a rel="noreferrer" target="_blank" href="https://armandochoa.com"
         >Armando Ochoa</a
       >

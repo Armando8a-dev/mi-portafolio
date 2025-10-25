@@ -1,9 +1,36 @@
 ---
+import profileImage from '../assets/images/profile.jpg';
+import LanguageSelector from './LanguageSelector.astro';
+
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '/' } = Astro.props;
+
+// Detectar el idioma basado en la ruta
+const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
+
+// URL de inicio según idioma
+const homeUrl = currentLang === 'en' ? '/en' : '/';
+
+// Traducciones
+const translations = {
+  es: {
+    home: 'Inicio',
+    about: 'Sobre Mí',
+    projects: 'Proyectos',
+    contact: 'Contacto'
+  },
+  en: {
+    home: 'Home',
+    about: 'About Me',
+    projects: 'Projects',
+    contact: 'Contact'
+  }
+};
+
+const t = translations[currentLang];
 ---
 
 <header class="header">
@@ -11,7 +38,7 @@ const { currentPath = '/' } = Astro.props;
     <div class="header__logo-container">
       <div class="header__logo-img-cont">
         <img
-          src="/assets/png/profile.jpg"
+          src={profileImage.src}
           alt="Armando Ochoa Logo Image"
           class="header__logo-img"
         />
@@ -21,29 +48,35 @@ const { currentPath = '/' } = Astro.props;
     <div class="header__main">
       <ul class="header__links">
         <li class="header__link-wrapper">
-          <a href="/" class="header__link">Inicio</a>
+          <a href={homeUrl} class="header__link">{t.home}</a>
         </li>
         <li class="header__link-wrapper">
-          <a href={`${currentPath}#about`} class="header__link">Sobre Mí</a>
+          <a href={`${currentPath}#about`} class="header__link">{t.about}</a>
         </li>
         <li class="header__link-wrapper">
-          <a href={`${currentPath}#projects`} class="header__link">Proyectos</a>
+          <a href={`${currentPath}#projects`} class="header__link">{t.projects}</a>
         </li>
         <li class="header__link-wrapper">
-          <a href={`${currentPath}#contact`} class="header__link">Contacto</a>
+          <a href={`${currentPath}#contact`} class="header__link">{t.contact}</a>
+        </li>
+        <li class="header__link-wrapper">
+          <LanguageSelector />
         </li>
       </ul>
-      <div class="header__main-ham-menu-cont">
-        <img
-          src="/assets/svg/ham-menu.svg"
-          alt="hamburger menu"
-          class="header__main-ham-menu"
-        />
-        <img
-          src="/assets/svg/ham-menu-close.svg"
-          alt="hamburger menu close"
-          class="header__main-ham-menu-close d-none"
-        />
+      <div class="header__main-actions">
+        <LanguageSelector />
+        <div class="header__main-ham-menu-cont">
+          <img
+            src="/assets/svg/ham-menu.svg"
+            alt="hamburger menu"
+            class="header__main-ham-menu"
+          />
+          <img
+            src="/assets/svg/ham-menu-close.svg"
+            alt="hamburger menu close"
+            class="header__main-ham-menu-close d-none"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -51,19 +84,70 @@ const { currentPath = '/' } = Astro.props;
     <div class="header__sm-menu-content">
       <ul class="header__sm-menu-links">
         <li class="header__sm-menu-link">
-          <a href="/">Inicio</a>
+          <a href={homeUrl}>{t.home}</a>
         </li>
         <li class="header__sm-menu-link">
-          <a href={`${currentPath}#about`}>Sobre Mí</a>
+          <a href={`${currentPath}#about`}>{t.about}</a>
         </li>
         <li class="header__sm-menu-link">
-          <a href={`${currentPath}#projects`}>Proyectos</a>
+          <a href={`${currentPath}#projects`}>{t.projects}</a>
         </li>
         <li class="header__sm-menu-link">
-          <a href={`${currentPath}#contact`}>Contacto</a>
+          <a href={`${currentPath}#contact`}>{t.contact}</a>
         </li>
       </ul>
     </div>
   </div>
 </header>
+
+<style>
+  /* Contenedor de acciones en móvil: selector de idioma + menú hamburguesa */
+  .header__main-actions {
+    display: none;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    /* Ocultar enlaces de navegación en móvil */
+    .header__links {
+      display: none !important;
+    }
+
+    /* Mostrar contenedor de acciones en móvil */
+    .header__main-actions {
+      display: flex !important;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    /* Asegurar que el selector de idioma sea visible y alineado */
+    .header__main-actions > :global(.language-selector) {
+      display: flex !important;
+      position: relative;
+      z-index: 999;
+      align-items: center;
+    }
+
+    /* Alinear el contenedor del menú hamburguesa */
+    .header__main-ham-menu-cont {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Ajustar espaciado en pantallas muy pequeñas */
+    .header__main-actions {
+      gap: 0.8rem;
+    }
+  }
+
+  @media (min-width: 769px) {
+    /* Ocultar el selector de idioma duplicado en desktop */
+    .header__main-actions > :global(.language-selector) {
+      display: none !important;
+    }
+  }
+</style>
 

@@ -172,6 +172,14 @@ const NAV_LINKS = getNavLinks(currentLang);
     .nav-wrapper {
       display: none;
     }
+    
+    /* Asegurar que el selector de idioma sea visible en móvil */
+    .header-content > :global(.language-selector) {
+      display: flex !important;
+      position: relative;
+      z-index: 999;
+    }
+    
     .mobile-nav-toggle {
       display: block;
       cursor: pointer;

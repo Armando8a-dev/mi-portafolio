@@ -1,27 +1,27 @@
 ---
-import Layout from "../../layouts/PortfolioLayout.astro";
-import Header from "../../components/PortfolioHeader.astro";
-import Footer from "../../components/PortfolioFooter.astro";
-import ProjectGalleryCard from "../../components/ProjectGalleryCard.astro";
-import SkillIcon from "../../components/SkillIcon.astro";
+import Layout from "../../../layouts/PortfolioLayout.astro";
+import Header from "../../../components/PortfolioHeader.astro";
+import Footer from "../../../components/PortfolioFooter.astro";
+import ProjectGalleryCard from "../../../components/ProjectGalleryCard.astro";
+import SkillIcon from "../../../components/SkillIcon.astro";
 ---
 
 <Layout
   title="Armando Ochoa - DA"
-  description="Portfolio de Analista de Datos - Armando Ochoa"
+  description="Portfolio de Data Analyst - Armando Ochoa"
   favicon="📊"
 >
-  <Header currentPath="/data-analyst" />
+  <Header currentPath="/en/data-analyst" />
 
   <section class="home-hero">
     <div class="home-hero__content">
-      <h1 class="heading-primary">HOLA, SOY ARMANDO OCHOA</h1>
+      <h1 class="heading-primary">HI, I'M ARMANDO OCHOA</h1>
       <div class="home-hero__info">
         <p class="text-primary">
-          Apasionado por descubrir patrones en los datos y convertirlos en
-          estrategias accionables. Busco generar impacto mediante el análisis,
-          la interpretación y la visualización de información que respalde
-          decisiones basadas en evidencia.
+          Passionate about discovering patterns in data and transforming them into
+          actionable strategies. I seek to generate impact through analysis,
+          interpretation, and visualization of information that supports
+          evidence-based decisions.
         </p>
       </div>
     </div>
@@ -34,43 +34,43 @@ import SkillIcon from "../../components/SkillIcon.astro";
   <section id="about" class="about sec-pad">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-med">
-        <span class="heading-sec__main">Sobre Mí</span>
+        <span class="heading-sec__main">About Me</span>
         <span class="heading-sec__sub">
-          Aquí encontrarás más información sobre mí, lo que hago y mis
-          habilidades.
+          Here you'll find more information about me, what I do, and my
+          skills.
         </span>
       </h2>
       <div class="about__content">
         <div class="about__content-main">
-          <h3 class="about__content-title">¡Conóceme!</h3>
+          <h3 class="about__content-title">Get to know me!</h3>
           <div class="about__content-details">
             <p class="about__content-details-para">
-              Soy <strong>Analista de Datos </strong> apasionado por descubrir historias
-              detrás de los números y transformar la información en decisiones estratégicas.
-              Me motiva entender el "por qué" detrás de cada dato y aportar valor
-              real a través del análisis, la visualización y la interpretación de
-              resultados.
+              I'm a <strong>Data Analyst </strong> passionate about uncovering stories
+              behind numbers and transforming information into strategic decisions.
+              I'm motivated by understanding the "why" behind every piece of data and providing
+              real value through analysis, visualization, and interpretation of
+              results.
               <br />
               <br />
-              Durante mi formación, he desarrollado proyectos que abarcan desde la
-              limpieza y transformación de datos hasta la creación de dashboards
-              interactivos con herramientas como Python, SQL y Tableau. Mi enfoque
-              combina el pensamiento analítico con la curiosidad constante por mejorar
-              procesos y optimizar la toma de decisiones en entornos dinámicos.
+              During my training, I have developed projects that range from data
+              cleaning and transformation to creating interactive dashboards
+              with tools like Python, SQL, and Tableau. My approach
+              combines analytical thinking with constant curiosity to improve
+              processes and optimize decision-making in dynamic environments.
               <br />
               <br />
-              Creo firmemente que los datos son la base para comprender, mejorar
-              y hacer crecer cualquier negocio. Por eso, mi objetivo es seguir perfeccionando
-              mis habilidades técnicas y estratégicas para convertir la información
-              en conocimiento accionable que impulse resultados tangibles y sostenibles.
+              I firmly believe that data is the foundation for understanding, improving,
+              and growing any business. That's why my goal is to continue perfecting
+              my technical and strategic skills to turn information
+              into actionable knowledge that drives tangible and sustainable results.
             </p>
           </div>
           <a href="./#contact" class="btn btn--med btn--theme dynamicBgClr"
-            >Contactame</a
+            >Contact</a
           >
         </div>
         <div class="about__content-skills">
-          <h3 class="about__content-title">Mis Habilidades</h3>
+          <h3 class="about__content-title">My Skills</h3>
           <div class="skills-grid">
             <SkillIcon name="Python" icon="simple-icons:python" />
             <SkillIcon name="Pandas" icon="simple-icons:pandas" />
@@ -94,30 +94,30 @@ import SkillIcon from "../../components/SkillIcon.astro";
   <section id="projects" class="projects sec-pad">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-bg">
-        <span class="heading-sec__main">Proyectos de Análisis</span>
+        <span class="heading-sec__main">Analysis Projects</span>
         <span class="heading-sec__sub">
-          Explora mis dashboards y visualizaciones de datos interactivas. Haz clic para ver cada proyecto en Tableau Public.
+          Explore my dashboards and interactive data visualizations. Click to view each project on Tableau Public.
         </span>
       </h2>
 
       <div class="projects-gallery">
         <ProjectGalleryCard
-          title="Dashboard de Ventas"
-          description="Análisis de ventas por región y producto"
+          title="Sales Dashboard"
+          description="Sales analysis by region and product"
           image="/assets/jpeg/project-mockup-example.jpeg"
           tableauUrl="https://public.tableau.com/views/YourProject1"
         />
 
         <ProjectGalleryCard
-          title="Análisis de Clientes"
-          description="Segmentación y comportamiento de clientes"
+          title="Customer Analysis"
+          description="Customer segmentation and behavior"
           image="/assets/jpeg/project-mockup-example.jpeg"
           tableauUrl="https://public.tableau.com/views/YourProject2"
         />
 
         <ProjectGalleryCard
-          title="KPIs Financieros"
-          description="Métricas clave de desempeño financiero"
+          title="Financial KPIs"
+          description="Key financial performance metrics"
           image="/assets/jpeg/project-mockup-example.jpeg"
           tableauUrl="https://public.tableau.com/views/YourProject3"
         />
@@ -128,9 +128,9 @@ import SkillIcon from "../../components/SkillIcon.astro";
   <section id="approach" class="approach sec-pad">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-bg">
-        <span class="heading-sec__main">Mi Enfoque Analítico</span>
+        <span class="heading-sec__main">My Analytical Approach</span>
         <span class="heading-sec__sub">
-          Los pilares fundamentales que guían mi trabajo como Analista de Datos
+          The fundamental pillars that guide my work as a Data Analyst
         </span>
       </h2>
 
@@ -142,11 +142,11 @@ import SkillIcon from "../../components/SkillIcon.astro";
               <path d="m19 9-5 5-4-4-3 3"/>
             </svg>
           </div>
-          <h3 class="approach-card__title">Manipulación y Análisis de Datos</h3>
+          <h3 class="approach-card__title">Data Manipulation and Analysis</h3>
           <p class="approach-card__description">
-            Me especializo en preparar, limpiar y transformar conjuntos de datos para obtener información confiable y útil. 
-            He trabajado con Python (Pandas, NumPy) y SQL para identificar patrones, depurar inconsistencias y generar métricas que facilitan la toma de decisiones. 
-            Busco seguir mejorando en el diseño de pipelines más automatizados y eficientes.
+            I specialize in preparing, cleaning, and transforming datasets to obtain reliable and useful information.
+            I have worked with Python (Pandas, NumPy) and SQL to identify patterns, debug inconsistencies, and generate metrics that facilitate decision-making.
+            I aim to continue improving in designing more automated and efficient pipelines.
           </p>
         </div>
 
@@ -159,11 +159,11 @@ import SkillIcon from "../../components/SkillIcon.astro";
               <path d="M7 17h10"/>
             </svg>
           </div>
-          <h3 class="approach-card__title">Visualización de Datos</h3>
+          <h3 class="approach-card__title">Data Visualization</h3>
           <p class="approach-card__description">
-            Disfruto convertir los datos en historias visuales que transmiten valor de forma clara y atractiva. 
-            Utilizo herramientas como Tableau para crear dashboards enfocados en la comprensión del negocio y la comunicación con equipos no técnicos. 
-            Sigo fortaleciendo mi criterio visual y mi capacidad para elegir las visualizaciones más efectivas según el contexto.
+            I enjoy converting data into visual stories that convey value clearly and attractively.
+            I use tools like Tableau to create dashboards focused on business understanding and communication with non-technical teams.
+            I continue to strengthen my visual judgment and ability to choose the most effective visualizations according to context.
           </p>
         </div>
 
@@ -180,9 +180,9 @@ import SkillIcon from "../../components/SkillIcon.astro";
           </div>
           <h3 class="approach-card__title">Machine Learning</h3>
           <p class="approach-card__description">
-            Estoy desarrollando mis habilidades en modelos predictivos y segmentación de usuarios con Python (Scikit-learn). 
-            He implementado algoritmos supervisados y no supervisados en proyectos de aprendizaje, analizando resultados e interpretando su impacto en decisiones reales. 
-            Mi meta es profundizar en la evaluación de modelos y optimización de hiperparámetros para casos de negocio concretos.
+            I am developing my skills in predictive models and user segmentation with Python (Scikit-learn).
+            I have implemented supervised and unsupervised algorithms in learning projects, analyzing results and interpreting their impact on real decisions.
+            My goal is to deepen my understanding of model evaluation and hyperparameter optimization for concrete business cases.
           </p>
         </div>
       </div>
@@ -192,10 +192,10 @@ import SkillIcon from "../../components/SkillIcon.astro";
   <section id="contact" class="contact sec-pad dynamicBg">
     <div class="main-container">
       <h2 class="heading heading-sec heading-sec__mb-med">
-        <span class="heading-sec__main heading-sec__main--lt">Contactame</span>
+        <span class="heading-sec__main heading-sec__main--lt">Contact</span>
         <span class="heading-sec__sub heading-sec__sub--lt">
-          ¿Tienes alguna pregunta o quieres trabajar juntos? Completa el
-          formulario y me pondré en contacto contigo lo antes posible.
+          Do you have any questions or want to work together? Fill out the
+          form and I will get in touch with you as soon as possible.
         </span>
       </h2>
       <div class="contact__form-container">
@@ -238,14 +238,14 @@ import SkillIcon from "../../components/SkillIcon.astro";
               id="message"></textarea>
           </div>
           <button type="submit" class="btn btn--theme contact__btn">
-            Enviar Mensaje
+            Send Message
           </button>
         </form>
       </div>
     </div>
   </section>
 
-  <Footer lang="es" profession="data" />
+  <Footer lang="en" profession="data" />
 </Layout>
 
 <style>
@@ -377,3 +377,5 @@ import SkillIcon from "../../components/SkillIcon.astro";
     }
   }
 </style>
+
+

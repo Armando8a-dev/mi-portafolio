@@ -4,6 +4,10 @@ import { getTranslations } from '../utils/translations';
 
 const currentLang = Astro.url.pathname.startsWith('/en') ? 'en' : 'es';
 const t = getTranslations(currentLang);
+
+// Generar URLs según el idioma
+const dataAnalystUrl = currentLang === 'en' ? '/en/data-analyst' : '/data-analyst';
+const webDeveloperUrl = currentLang === 'en' ? '/en/web-developer' : '/web-developer';
 ---
 
 <section id="portfolios" class="page-section">
@@ -23,7 +27,7 @@ const t = getTranslations(currentLang);
         <p class="portfolio-card__description">
           {t.portfolios.dataAnalyst.description}
         </p>
-        <a href="/data-analyst" class="btn btn--data">
+        <a href={dataAnalystUrl} class="btn btn--data">
           {t.portfolios.dataAnalyst.button}
         </a>
       </div>
@@ -35,7 +39,7 @@ const t = getTranslations(currentLang);
         <p class="portfolio-card__description">
           {t.portfolios.webDeveloper.description}
         </p>
-        <a href="/web-developer" class="btn btn--web">
+        <a href={webDeveloperUrl} class="btn btn--web">
           {t.portfolios.webDeveloper.button}
         </a>
       </div>
