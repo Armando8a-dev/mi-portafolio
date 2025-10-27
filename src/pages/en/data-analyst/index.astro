@@ -249,16 +249,42 @@ import SkillIcon from "../../../components/SkillIcon.astro";
 </Layout>
 
 <style>
+  /* Carrusel móvil para proyectos */
   .projects-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
     margin-top: 4rem;
+    padding: 0 1.5rem 2rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
   }
 
-  @media (min-width: 640px) {
+  /* Ocultar scrollbar */
+  .projects-gallery::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .projects-gallery > :global(*) {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+
+  @media (min-width: 768px) {
     .projects-gallery {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      overflow-x: visible;
+      scroll-snap-type: none;
+      padding: 0;
+    }
+
+    .projects-gallery > :global(*) {
+      flex: unset;
+      scroll-snap-align: unset;
     }
   }
 
