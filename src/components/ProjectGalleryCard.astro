@@ -1,5 +1,5 @@
 ---
-// Componente para proyectos de Data Analyst - Estilo Card similar a Web Developer
+// Componente para proyectos de Data Analyst - Diseño visual con imagen principal
 interface Props {
   title: string;
   description: string;
@@ -12,8 +12,8 @@ interface Props {
 const { title, description, image, tableauUrl, tags = [], lang = 'es' } = Astro.props;
 
 const translations = {
-  es: { clickToView: 'Clic para ver el proyecto' },
-  en: { clickToView: 'Click to view project' }
+  es: { viewProject: 'Clic para ver' },
+  en: { viewProject: 'Click to view' }
 };
 
 const t = translations[lang];
@@ -26,232 +26,178 @@ const t = translations[lang];
   class="project-card"
 >
   {image && (
-    <div class="project-card__image-container">
+    <div class="project-card__image-wrapper">
       <img src={image} alt={title} class="project-card__image" />
-      <div class="project-card__overlay">
-        <span class="project-card__cta">{t.clickToView}</span>
-      </div>
     </div>
   )}
-  <div class="project-card__text-content">
+  
+  <div class="project-card__overlay">
     <div class="project-card__content">
       <h3 class="project-card__title">{title}</h3>
       <p class="project-card__description">{description}</p>
+      <span class="project-card__cta">{t.viewProject}</span>
     </div>
-    {tags.length > 0 && (
-      <div class="project-card__footer">
-        <div class="project-card__tags">
-          {tags.map(tag => <span class="project-card__tag">{tag}</span>)}
-        </div>
-      </div>
-    )}
   </div>
 </a>
 
 <style>
   :root {
-    --card-bg: #ffffff;
-    --card-bg-hover: #f8f9fa;
-    --text-primary: #1a202c;
-    --text-secondary: #718096;
     --accent-color: #0062b9;
-    --tag-bg: rgba(0, 98, 185, 0.08);
-    --tag-text: #0062b9;
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --overlay-bg: rgba(0, 15, 35, 0.92);
+  :root {
+    --accent-color: #0062b9;
+    --overlay-bg: rgba(0, 15, 35, 0.92);
+    --text-white: #ffffff;
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
   }
 
   .project-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    min-height: 380px;
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
     position: relative;
+    display: block;
+    height: 100%;
+    min-height: 400px;
+    border-radius: 16px;
     overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
   }
 
-  /* --- Imagen y Overlay --- */
-  .project-card__image-container {
+  /* --- Imagen principal (siempre visible) --- */
+  .project-card__image-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
     z-index: 1;
-  }
-
-  .project-card:hover .project-card__image-container {
-    opacity: 1;
   }
 
   .project-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .project-card:hover .project-card__image {
-    transform: scale(1.02);
+    transform: scale(1.08);
   }
 
+  /* --- Overlay con contenido (aparece al hover) --- */
   .project-card__overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--overlay-bg);
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 3rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+  }
+
+  .project-card:hover .project-card__overlay {
     opacity: 1;
   }
 
-  .project-card__cta {
-    color: white;
-    font-size: 1.25rem;
-    font-weight: 500;
-    text-align: center;
-    padding: 0;
-    opacity: 0.95;
-  }
-
-  /* --- Contenido de Texto --- */
-  .project-card__text-content {
-    position: relative;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    transition: opacity 0.3s ease;
-  }
-
-  .project-card:hover .project-card__text-content {
-    opacity: 0;
-  }
-
-  /* --- Contenido --- */
   .project-card__content {
-    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-white);
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .project-card:hover .project-card__content {
+    transform: translateY(0);
   }
 
   .project-card__title {
-    font-size: 1.75rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 1.2rem 0;
-    line-height: 1.3;
+    color: var(--text-white);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   .project-card__description {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  /* --- Footer --- */
-  .project-card__footer {
-    margin-top: auto;
+  .project-card__cta {
+    display: inline-block;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
   }
 
-  .project-card__tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .project-card__tag {
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
-    padding: 0.4rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
+  .project-card:hover .project-card__cta {
+    opacity: 1;
   }
 
   /* Responsivo */
   @media (max-width: 768px) {
     .project-card {
-      padding: 2rem 1.5rem;
       min-height: 350px;
     }
 
-    .project-card__content {
-      margin-bottom: 1.2rem;
+    .project-card__overlay {
+      padding: 2rem;
     }
 
     .project-card__title {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.9rem;
+      margin-bottom: 1.2rem;
     }
 
     .project-card__description {
       font-size: 1.05rem;
-      line-height: 1.65;
-    }
-
-    .project-card__tag {
-      font-size: 0.9rem;
-      padding: 0.45rem 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .project-card__cta {
-      font-size: 1.15rem;
-    }
-
-    /* Mostrar imagen al hacer tap en móvil */
-    .project-card:active .project-card__image-container {
-      opacity: 1;
-    }
-
-    .project-card:active .project-card__text-content {
-      opacity: 0;
-    }
-
-    .project-card:active .project-card__image {
-      transform: scale(1.02);
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 480px) {
     .project-card {
-      padding: 1.75rem 1.25rem;
-      min-height: 340px;
+      min-height: 320px;
+    }
+
+    .project-card__overlay {
+      padding: 1.5rem;
     }
 
     .project-card__title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
     }
 
     .project-card__description {
-      font-size: 1.05rem;
-    }
-
-    .project-card__tag {
-      font-size: 0.85rem;
-      padding: 0.4rem 0.9rem;
+      font-size: 1rem;
     }
   }
 </style>
