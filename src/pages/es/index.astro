@@ -1,0 +1,29 @@
+---
+// src/pages/es/index.astro — ES home
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Journey from '../../components/sections/Journey.astro';
+import FeaturedWork from '../../components/sections/FeaturedWork.astro';
+import MoreWork from '../../components/sections/MoreWork.astro';
+import SkillsSection from '../../components/sections/SkillsSection.astro';
+import ContactSection from '../../components/sections/ContactSection.astro';
+import { useTranslations } from '../../i18n/ui';
+
+const lang = 'es';
+const t = useTranslations(lang);
+---
+
+<BaseLayout lang={lang} title={t.seo.title} description={t.seo.description} path="/es/">
+  <SiteNav lang={lang} path="/es/" />
+  <main>
+    <Hero lang={lang} />
+    <Journey lang={lang} />
+    <FeaturedWork lang={lang} />
+    <MoreWork lang={lang} />
+    <SkillsSection lang={lang} />
+    <ContactSection lang={lang} />
+  </main>
+  <SiteFooter lang={lang} />
+</BaseLayout>

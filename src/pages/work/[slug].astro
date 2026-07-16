@@ -1,0 +1,113 @@
+---
+// src/pages/work/[slug].astro — EN case study
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { useTranslations } from '../../i18n/ui';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work', (e) => e.data.lang === 'en');
+  const sorted = entries.sort((a, b) => a.data.order - b.data.order);
+  return sorted.map((entry, i) => ({
+    params: { slug: entry.data.project },
+    props: { entry, next: sorted[(i + 1) % sorted.length] },
+  }));
+}
+
+const lang = 'en';
+const t = useTranslations(lang);
+const { entry, next } = Astro.props;
+const { Content } = await render(entry);
+const path = `/work/${entry.data.project}/`;
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${entry.data.title} — Armando Ochoa`}
+  description={entry.data.summary}
+  path={path}
+>
+  <SiteNav lang={lang} path={path} />
+  <main class="container case">
+    <a href="/#work" class="mono back">{t.caseStudy.back}</a>
+
+    <header class="head">
+      <h1 class="title">{entry.data.title}</h1>
+      <span class="tag-security">{entry.data.securityTag}</span>
+    </header>
+
+    <ul class="meta mono">
+      <li>{t.caseStudy.stack}: {entry.data.stack.join(' · ')}</li>
+    </ul>
+
+    <article class="prose">
+      <Content />
+    </article>
+
+    <div class="links">
+      <a href={entry.data.repo} target="_blank" rel="noopener noreferrer" class="btn">{t.caseStudy.repo} ↗</a>
+      {entry.data.demo && (
+        <a href={entry.data.demo} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">{t.caseStudy.demo} ↗</a>
+      )}
+      {entry.data.etherscan && (
+        <a href={entry.data.etherscan} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Etherscan ↗</a>
+      )}
+    </div>
+
+    <a href={`/work/${next.data.project}/`} class="next">
+      <span class="mono next-label">{t.caseStudy.next}</span>
+      <span class="next-title">{next.data.title} →</span>
+    </a>
+  </main>
+  <SiteFooter lang={lang} />
+</BaseLayout>
+
+<style>
+  .case { padding: 4rem 1.5rem 6rem; max-width: 760px; }
+  .back {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .back:hover { color: var(--accent-strong); }
+  .head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .title { font-size: clamp(2rem, 5vw, 3rem); }
+  .meta {
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+  .prose { margin-top: 2.5rem; }
+  .links { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .next {
+    display: block;
+    margin-top: 4rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  .next:hover { border-color: rgba(140, 108, 255, 0.35); }
+  .next-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .next-title {
+    display: block;
+    margin-top: 0.4rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--accent-strong);
+  }
+</style>

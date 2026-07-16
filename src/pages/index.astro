@@ -1,18 +1,29 @@
 ---
-// src/pages/index.astro
-import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import PortfolioCards from "../components/PortfolioCards.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+// src/pages/index.astro — EN home
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import Hero from '../components/sections/Hero.astro';
+import Journey from '../components/sections/Journey.astro';
+import FeaturedWork from '../components/sections/FeaturedWork.astro';
+import MoreWork from '../components/sections/MoreWork.astro';
+import SkillsSection from '../components/sections/SkillsSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import { useTranslations } from '../i18n/ui';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<Layout title="Armando Ochoa">
+<BaseLayout lang={lang} title={t.seo.title} description={t.seo.description} path="/">
+  <SiteNav lang={lang} path="/" />
   <main>
-    <Hero />
-    <About />
-    <PortfolioCards />
-    <Contact />
+    <Hero lang={lang} />
+    <Journey lang={lang} />
+    <FeaturedWork lang={lang} />
+    <MoreWork lang={lang} />
+    <SkillsSection lang={lang} />
+    <ContactSection lang={lang} />
   </main>
-</Layout>
+  <SiteFooter lang={lang} />
+</BaseLayout>
