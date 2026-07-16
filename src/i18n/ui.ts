@@ -22,12 +22,13 @@ const en = {
   nav: { work: 'Work', journey: 'Journey', skills: 'Skills', contact: 'Contact' },
   hero: {
     eyebrow: 'Armando Ochoa — Full Stack Web3 Developer',
-    title: 'I spent 6+ years building banking software. Now I build DeFi.',
+    title: 'I spent 7 years building banking software. Now I build DeFi.',
     subtitle:
       'Solidity and Smart Contracts with a security-first mindset: CEI patterns, reentrancy guards and fuzz testing on every contract. Frontend in Next.js, wagmi and viem.',
-    meta: ['Cofounder @ ALFA 3', "Blockchain Accelerator '26", '6+ yrs fintech'],
+    meta: ['Cofounder @ ALFA 3', "Blockchain Accelerator '26", '7 yrs fintech'],
     ctaWork: 'View work',
     ctaGithub: 'GitHub',
+    ctaLinkedin: 'LinkedIn',
   },
   journey: {
     label: '01 / Journey',
@@ -37,7 +38,7 @@ const en = {
         year: '2019',
         org: 'Banregio / Hey Banco',
         role: 'Full Stack Web Developer · Aug 2019 — Present',
-        summary: '6+ years shipping banking platforms used daily by thousands of customers.',
+        summary: '7 years shipping banking platforms used daily by thousands of customers.',
         bullets: [
           'Digital Onboarding — built the platform that lets customers open accounts and contract financial products 100% online, no branch visit. Angular + TypeScript frontend, Java/Spring Boot microservices, SQL, bank API integrations.',
           'Business Banking — features companies run their money on: national transfers, payroll, bulk payments and dispersals, user and permission management.',
@@ -90,21 +91,22 @@ const en = {
     dataGroup: 'Data',
     web: [
       {
-        title: 'Landing Kit',
-        description: 'Customizable landing template for independent professionals.',
-        url: 'https://landing-fisio-ui.netlify.app',
-        tags: ['Next.js', 'Tailwind', 'shadcn/ui'],
+        title: 'Pistonova',
+        description: 'A fully functional e-commerce storefront — product catalog, cart and checkout.',
+        url: 'https://demo-ecomm.alfatres.com/es',
+        tags: ['Next.js', 'E-commerce'],
       },
       {
-        title: 'Wedding Invitation',
-        description: 'Interactive digital wedding invitation with RSVP.',
-        url: 'https://invitation-wedding-ui.netlify.app',
-        tags: ['React', 'Tailwind'],
+        title: 'Dolovibes',
+        description: 'Web platform built and shipped end to end — React frontend, Railway backend, Python data pipeline.',
+        url: 'https://www.dolo-vibes.com/es',
+        tags: ['React', 'Railway', 'Python'],
       },
       {
-        title: 'Dolovibes (ALFA 3)',
-        description: 'Full infrastructure: domain, Vercel frontend, Railway backend, Pandas data pipeline.',
-        tags: ['Vercel', 'Railway', 'Python'],
+        title: 'Colegio Monteclaro',
+        description: 'Website for educational institutions — a clean, responsive template for schools.',
+        url: 'https://colegio-mty.pages.dev/',
+        tags: ['Institutional', 'Responsive'],
       },
     ] as ExternalProject[],
     data: [
@@ -164,7 +166,7 @@ const en = {
   seo: {
     title: 'Armando Ochoa — Full Stack Web3 Developer',
     description:
-      'Full Stack Web3 Developer — Solidity, Smart Contracts & DeFi. 6+ years of fintech engineering experience.',
+      'Full Stack Web3 Developer — Solidity, Smart Contracts & DeFi. 7 years of fintech engineering experience.',
   },
 };
 
@@ -172,12 +174,13 @@ const es: typeof en = {
   nav: { work: 'Proyectos', journey: 'Trayectoria', skills: 'Skills', contact: 'Contacto' },
   hero: {
     eyebrow: 'Armando Ochoa — Full Stack Web3 Developer',
-    title: 'Pasé 6+ años construyendo software bancario. Ahora construyo DeFi.',
+    title: 'Pasé 7 años construyendo software bancario. Ahora construyo DeFi.',
     subtitle:
       'Solidity y Smart Contracts con mentalidad de seguridad primero: patrones CEI, reentrancy guards y fuzz testing en cada contrato. Frontend en Next.js, wagmi y viem.',
-    meta: ['Cofundador @ ALFA 3', "Blockchain Accelerator '26", '6+ años fintech'],
+    meta: ['Cofundador @ ALFA 3', "Blockchain Accelerator '26", '7 años fintech'],
     ctaWork: 'Ver proyectos',
     ctaGithub: 'GitHub',
+    ctaLinkedin: 'LinkedIn',
   },
   journey: {
     label: '01 / Trayectoria',
@@ -187,7 +190,7 @@ const es: typeof en = {
         year: '2019',
         org: 'Banregio / Hey Banco',
         role: 'Desarrollador Web Full Stack · Ago 2019 — Actualidad',
-        summary: 'Más de 6 años construyendo plataformas bancarias usadas a diario por miles de clientes.',
+        summary: '7 años construyendo plataformas bancarias usadas a diario por miles de clientes.',
         bullets: [
           'Onboarding Digital — construí la plataforma que permite abrir cuentas y contratar productos financieros 100% en línea, sin ir a sucursal. Frontend Angular + TypeScript, microservicios Java/Spring Boot, SQL, integración con APIs bancarias.',
           'Banca Empresarial — funcionalidades con las que las empresas operan su dinero: transferencias nacionales, nómina, pagos y dispersiones, administración de usuarios y permisos.',
@@ -240,21 +243,22 @@ const es: typeof en = {
     dataGroup: 'Datos',
     web: [
       {
-        title: 'Landing Kit',
-        description: 'Plantilla de landing personalizable para profesionales independientes.',
-        url: 'https://landing-fisio-ui.netlify.app',
-        tags: ['Next.js', 'Tailwind', 'shadcn/ui'],
+        title: 'Pistonova',
+        description: 'Una tienda e-commerce completamente funcional — catálogo de productos, carrito y checkout.',
+        url: 'https://demo-ecomm.alfatres.com/es',
+        tags: ['Next.js', 'E-commerce'],
       },
       {
-        title: 'Invitación de Boda',
-        description: 'Invitación de boda digital e interactiva con confirmación de asistencia.',
-        url: 'https://invitation-wedding-ui.netlify.app',
-        tags: ['React', 'Tailwind'],
+        title: 'Dolovibes',
+        description: 'Plataforma web construida y desplegada de punta a punta — frontend en React, backend en Railway, pipeline de datos en Python.',
+        url: 'https://www.dolo-vibes.com/es',
+        tags: ['React', 'Railway', 'Python'],
       },
       {
-        title: 'Dolovibes (ALFA 3)',
-        description: 'Infraestructura completa: dominio, frontend en Vercel, backend en Railway, pipeline de datos con Pandas.',
-        tags: ['Vercel', 'Railway', 'Python'],
+        title: 'Colegio Monteclaro',
+        description: 'Sitio web para instituciones educativas — plantilla limpia y responsive para colegios.',
+        url: 'https://colegio-mty.pages.dev/',
+        tags: ['Institucional', 'Responsive'],
       },
     ],
     data: [
@@ -314,7 +318,7 @@ const es: typeof en = {
   seo: {
     title: 'Armando Ochoa — Full Stack Web3 Developer',
     description:
-      'Full Stack Web3 Developer — Solidity, Smart Contracts y DeFi. 6+ años de experiencia en desarrollo fintech.',
+      'Full Stack Web3 Developer — Solidity, Smart Contracts y DeFi. 7 años de experiencia en desarrollo fintech.',
   },
 };
 

@@ -10,9 +10,9 @@
   --border: rgba(232, 236, 244, 0.08);
   --text: #E8ECF4;
   --text-secondary: #94A3B8;
-  --accent: #8C6CFF;
-  --accent-dim: rgba(140, 108, 255, 0.12);
-  --accent-strong: #A78BFA;
+  --accent: #4D8DFF;
+  --accent-dim: rgba(77, 141, 255, 0.12);
+  --accent-strong: #7FB0FF;
   --font-sans: 'Archivo Variable', system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Mono', monospace;
   --container: 1080px;
@@ -77,7 +77,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: 1.75rem;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
-.card:hover { border-color: rgba(140, 108, 255, 0.35); transform: translateY(-3px); }
+.card:hover { border-color: rgba(77, 141, 255, 0.35); transform: translateY(-3px); }
 
 .btn {
   display: inline-block;
