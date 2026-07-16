@@ -12,9 +12,7 @@
     "@astrojs/sitemap": "^3.7.3",
     "@fontsource-variable/archivo": "^5.2.8",
     "@fontsource/ibm-plex-mono": "^5.2.7",
-    "@iconify-json/simple-icons": "^1.2.53",
-    "astro": "^5.13.11",
-    "astro-icon": "^1.1.5"
+    "astro": "^5.13.11"
   },
   "devDependencies": {
     "sharp": "^0.35.3"
