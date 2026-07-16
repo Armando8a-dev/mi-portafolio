@@ -1,0 +1,82 @@
+---
+// src/components/sections/FeaturedWork.astro
+import { getCollection } from 'astro:content';
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const entries = (await getCollection('work', (e) => e.data.lang === lang)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+const caseBase = lang === 'en' ? '/work' : '/es/work';
+---
+
+<section id="work" class="section">
+  <div class="container">
+    <p class="section-label">{t.work.label}</p>
+    <h2 class="section-title">{t.work.title}</h2>
+    <p class="section-sub">{t.work.sub}</p>
+
+    <div class="grid">
+      {entries.map((entry) => (
+        <article class="card reveal">
+          <div class="head">
+            <h3 class="name">{entry.data.title}</h3>
+            <span class="tag-security">{entry.data.securityTag}</span>
+          </div>
+          <p class="summary">{entry.data.summary}</p>
+          <ul class="stack">
+            {entry.data.stack.map((s) => <li class="chip">{s}</li>)}
+          </ul>
+          <div class="links">
+            <a href={`${caseBase}/${entry.data.project}/`} class="case-link">{t.work.caseCta} →</a>
+            <a href={entry.data.repo} target="_blank" rel="noopener noreferrer" class="repo-link mono">{t.work.repoCta} ↗</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .name { font-size: 1.3rem; }
+  .summary { color: var(--text-secondary); margin-top: 0.85rem; }
+  .stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+  .links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+  .case-link {
+    color: var(--accent-strong);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .case-link:hover { text-decoration: underline; }
+  .repo-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.85rem;
+  }
+  .repo-link:hover { color: var(--text); }
+</style>

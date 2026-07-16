@@ -1,0 +1,41 @@
+---
+// src/components/sections/ContactSection.astro
+import { useTranslations, SOCIAL, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="contact" class="section">
+  <div class="container narrow">
+    <p class="section-label">{t.contact.label}</p>
+    <h2 class="section-title">{t.contact.title}</h2>
+    <p class="section-sub">{t.contact.sub}</p>
+
+    <form action={SOCIAL.formspree} method="POST" class="form">
+      <div class="field">
+        <label for="name">{t.contact.name}</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="field">
+        <label for="email">{t.contact.email}</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="field">
+        <label for="message">{t.contact.message}</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <button type="submit" class="btn">{t.contact.send}</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .narrow { max-width: 640px; }
+  .form { margin-top: 2.5rem; }
+  .field { margin-bottom: 1.5rem; }
+  button.btn { cursor: pointer; font-size: 1rem; font-family: var(--font-sans); }
+</style>

@@ -1,0 +1,48 @@
+---
+// src/components/sections/SkillsSection.astro
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section id="skills" class="section">
+  <div class="container">
+    <p class="section-label">{t.skills.label}</p>
+    <h2 class="section-title">{t.skills.title}</h2>
+
+    <div class="groups">
+      {t.skills.groups.map((group) => (
+        <div class="group reveal">
+          <h3 class="mono group-name">{group.name}</h3>
+          <ul class="chips">
+            {group.items.map((item) => <li class="chip">{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .groups {
+    display: grid;
+    gap: 2.25rem;
+    margin-top: 3rem;
+  }
+  .group-name {
+    font-size: 0.85rem;
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+</style>

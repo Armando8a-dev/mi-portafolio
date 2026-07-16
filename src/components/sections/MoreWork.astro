@@ -1,0 +1,83 @@
+---
+// src/components/sections/MoreWork.astro
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const groups = [
+  { name: t.moreWork.webGroup, items: t.moreWork.web },
+  { name: t.moreWork.dataGroup, items: t.moreWork.data },
+];
+---
+
+<section id="more-work" class="section">
+  <div class="container">
+    <p class="section-label">{t.moreWork.label}</p>
+    <h2 class="section-title">{t.moreWork.title}</h2>
+
+    {groups.map((group) => (
+      <div class="group">
+        <h3 class="mono group-name">{group.name}</h3>
+        <div class="grid">
+          {group.items.map((item) => {
+            const Tag = item.url ? 'a' : 'div';
+            return (
+              <Tag
+                class="card item reveal"
+                {...(item.url
+                  ? { href: item.url, target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
+                {item.thumb && <img src={item.thumb} alt={item.title} class="thumb" loading="lazy" />}
+                <h4 class="item-title">{item.title}{item.url && <span class="ext"> ↗</span>}</h4>
+                <p class="item-desc">{item.description}</p>
+                <ul class="tags">
+                  {item.tags.map((tag) => <li class="chip">{tag}</li>)}
+                </ul>
+              </Tag>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .group { margin-top: 3rem; }
+  .group-name {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.25rem;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .item { text-decoration: none; display: block; }
+  .thumb {
+    border-radius: 8px;
+    margin-bottom: 1.1rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    width: 100%;
+    border: 1px solid var(--border);
+  }
+  .item-title { font-size: 1.05rem; margin: 0; }
+  .ext { color: var(--accent-strong); font-weight: 400; }
+  .item-desc {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+</style>
