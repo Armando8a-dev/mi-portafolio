@@ -1,0 +1,133 @@
+---
+// src/components/SiteNav.astro
+import { useTranslations, getAltPath, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  path: string;
+}
+const { lang, path } = Astro.props;
+const t = useTranslations(lang);
+const home = lang === 'en' ? '/' : '/es/';
+const altLang: Lang = lang === 'en' ? 'es' : 'en';
+const altPath = getAltPath(path, altLang);
+const links = [
+  { href: `${home}#work`, label: t.nav.work },
+  { href: `${home}#journey`, label: t.nav.journey },
+  { href: `${home}#skills`, label: t.nav.skills },
+  { href: `${home}#contact`, label: t.nav.contact },
+];
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href={home} class="brand mono">armando.ochoa</a>
+    <nav class="links" aria-label="Main">
+      {links.map((l) => <a href={l.href} class="nav-link">{l.label}</a>)}
+      <a href={altPath} class="lang mono" aria-label={altLang === 'es' ? 'Versión en español' : 'English version'}>
+        {altLang.toUpperCase()}
+      </a>
+    </nav>
+    <button id="nav-toggle" class="toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div id="nav-mobile" class="mobile">
+    {links.map((l) => <a href={l.href} class="mobile-link">{l.label}</a>)}
+    <a href={altPath} class="mobile-link mono">{altLang.toUpperCase()}</a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-mobile');
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('open');
+    btn.setAttribute('aria-expanded', String(!!open));
+  });
+  menu?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      btn?.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 14, 22, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+  }
+  .nav-link {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--text); }
+  .lang {
+    text-decoration: none;
+    font-size: 0.75rem;
+    color: var(--accent-strong);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+  }
+  .lang:hover { border-color: var(--accent); }
+  .toggle { display: none; }
+  .mobile { display: none; }
+
+  @media (max-width: 768px) {
+    .links { display: none; }
+    .toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      display: block;
+    }
+    .mobile.open {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .mobile-link {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  }
+</style>
