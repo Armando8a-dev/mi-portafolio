@@ -9,12 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
     "@iconify-json/simple-icons": "^1.2.53",
-    "@tailwindcss/vite": "^4.1.15",
     "astro": "^5.13.11",
-    "astro-i18next": "^1.0.0-beta.21",
-    "astro-icon": "^1.1.5",
-    "i18next": "^25.6.0",
-    "tailwindcss": "^4.1.15"
+    "astro-icon": "^1.1.5"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3"
   }
 }
