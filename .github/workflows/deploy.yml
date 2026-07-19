@@ -3,9 +3,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Se ejecuta en cada push a la rama `main`
+  # Se ejecuta en cada push a la rama de producción del rediseño
   push:
-    branches: [ mi-portafolio-v1 ]
+    branches: [ redesign-v2 ]
   # Te permite ejecutar este workflow manualmente desde la pestaña Actions
   workflow_dispatch:
 
